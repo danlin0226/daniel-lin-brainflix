@@ -1,0 +1,86 @@
+@use "../../styles/partials/colors" as colors;
+@use "../../styles/partials/mixins" as mixins;
+
+.header {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+  &__container {
+    // border: 2px solid red;
+    display: flex;
+  }
+
+  &__logo {
+    max-width: 120px;
+    max-height: 25px;
+    align-self: center;
+  }
+
+  &__search-bar {
+    flex: 1;
+    width: 100%;
+    height: 2.25rem;
+    border-radius: 0.25rem;
+    background-color: colors.$secondary-light;
+    @include mixins.mobile-subheader;
+    font-weight: 400;
+    border: 0.0625rem solid colors.$secondary-med;
+    padding: 0 12px;
+    &:focus {
+      outline: 0rem;
+      border: 2px solid colors.$primary-color;
+    }
+    &--error {
+      outline: 0rem;
+      border: 0.0625rem solid #d22d2d;
+    }
+  }
+
+  &__container {
+  }
+
+  &__avatar-cont {
+    width: 2.25rem;
+    height: 2.25rem;
+    background-color: colors.$primary-color;
+    border-radius: 50%;
+    margin-left: 16px;
+  }
+
+  &__avatar {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__button-cont {
+    position: relative;
+  }
+
+  &__upload-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: colors.$primary-color;
+    @include mixins.mobile-label-buttons;
+    text-decoration: none;
+    color: white;
+    border-radius: 4px;
+    height: 40px;
+    vertical-align: middle;
+    // position: absolute;
+    &--mobile-hidden {
+      display: none;
+    }
+  }
+
+  &__upload-icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto auto;
+    left: 8px;
+  }
+}
