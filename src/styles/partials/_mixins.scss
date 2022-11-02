@@ -1,9 +1,43 @@
 //
-//MOBILE TEXTS STYLES
+//DESKTOP & TABLET TEXTS STYLES
 //
-@mixin mobile-page-header {
+
+@mixin desk-tab-page-header {
   font-size: 33px;
   line-height: 44px;
+  font-weight: 700;
+}
+
+@mixin desk-tab-section-header {
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+@mixin desk-tab-subheader {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 700;
+}
+@mixin desk-tab-body-copy {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+@mixin desk-tab-label-buttons {
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+//
+//MOBILE TEXTS STYLES
+//
+
+@mixin mobile-page-header {
+  font-size: 24px;
+  line-height: 32px;
   font-weight: 700;
 }
 
@@ -14,50 +48,17 @@
 }
 
 @mixin mobile-subheader {
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 13px;
+  line-height: 18px;
   font-weight: 700;
 }
 @mixin mobile-body-copy {
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 13px;
+  line-height: 18px;
   font-weight: 400;
 }
 
 @mixin mobile-label-buttons {
-  font-size: 12px;
-  line-height: 20px;
-  font-weight: 700;
-}
-
-//
-//DESKTOP & TABLET TEXTS STYLES
-//
-
-@mixin desk-tab-page-header {
-  font-size: 24px;
-  line-height: 32px;
-  font-weight: 700;
-}
-
-@mixin desk-tab-section-header {
-  font-size: 12px;
-  line-height: 20px;
-  font-weight: 600;
-}
-
-@mixin desk-tab-subheader {
-  font-size: 13px;
-  line-height: 18px;
-  font-weight: 700;
-}
-@mixin desk-tab-body-copy {
-  font-size: 13px;
-  line-height: 18px;
-  font-weight: 400;
-}
-
-@mixin desk-tab-label-buttons {
   font-size: 12px;
   line-height: 20px;
   font-weight: 700;

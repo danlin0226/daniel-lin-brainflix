@@ -1,0 +1,16 @@
+@use "./partials/fonts" as *;
+
+html,
+body {
+  margin: 0;
+  font-family: "Avenir Next";
+  line-height: 0;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
