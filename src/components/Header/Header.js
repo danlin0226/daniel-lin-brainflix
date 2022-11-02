@@ -17,19 +17,27 @@ function Header() {
           ></input>
           <a
             className="header__upload-button header__upload-button--mobile-hidden"
-            href="#"
+            href="#call to action"
           >
             UPLOAD
           </a>
           <div className="header__avatar-cont">
-            <img className="header__avatar" src={avatar}></img>
+            <img
+              className="header__avatar"
+              src={avatar}
+              alt="profile shot of a man"
+            ></img>
           </div>
         </div>
         <div className="header__button-cont">
-          <img className="header__upload-icon" src={uploadIcon}></img>{" "}
+          <img
+            className="header__upload-icon"
+            alt="icon with arrow facing up"
+            src={uploadIcon}
+          ></img>{" "}
           <a
             className="header__upload-button header__upload--mobile-visible"
-            href="#"
+            href="#call to action"
           >
             UPLOAD
           </a>
