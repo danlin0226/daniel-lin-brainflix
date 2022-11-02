@@ -1,5 +1,7 @@
 import Header from "./components/Header/Header";
-import MainVideo from "./components/Video/MainVideo";
+import MainVideo from "./components/MainVideo/MainVideo";
+import MainVideoTitle from "./components/MainVideoTitle/MainVideoTitle";
+import "./styles/main.scss";
 
 function App() {
   return (
@@ -7,6 +9,7 @@ function App() {
       <Header />
       <main>
         <MainVideo />
+        <MainVideoTitle />
       </main>
     </>
   );

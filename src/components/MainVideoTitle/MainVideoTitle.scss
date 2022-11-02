@@ -1,0 +1,9 @@
+@use "../../styles/partials/mixins" as mixins;
+
+.main-video-title {
+  @include mixins.mobile-page-header; //this text is too bold vs mockup but no other font weights available
+  font-size: 24px;
+  margin-top: 24px;
+  margin-bottom: 16px;
+  padding: 0 16px;
+}

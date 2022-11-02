@@ -23,8 +23,7 @@
     height: 2.25rem;
     border-radius: 0.25rem;
     background-color: colors.$secondary-light;
-    @include mixins.mobile-subheader;
-    font-weight: 400;
+    @include mixins.mobile-body-copy;
     border: 0.0625rem solid colors.$secondary-med;
     padding: 0 12px;
     &:focus {
