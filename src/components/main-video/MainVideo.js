@@ -1,11 +1,12 @@
 import "./MainVideo.scss";
 
-function MainVideo() {
+function MainVideo({ videoDetails }) {
+  console.log(videoDetails.image);
   return (
     <video
       className="main-video"
       src=""
-      poster="https://i.imgur.com/l2Xfgpl.jpg"
+      poster={videoDetails.image}
       controls
     ></video>
   );
