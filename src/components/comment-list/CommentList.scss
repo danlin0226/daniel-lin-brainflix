@@ -1,0 +1,77 @@
+@use "../../styles/partials/colors" as colors;
+@use "../../styles/partials/mixins" as mixins;
+
+.comment-card {
+  display: flex;
+  color: colors.$primary-dark;
+  border-bottom: 0.0625rem solid colors.$secondary-med;
+  margin: 16px 16px;
+
+  &__avatar-placeholder {
+    min-width: 2.25rem;
+    height: 2.25rem;
+    background-color: colors.$secondary-med;
+    border-radius: 50%;
+  }
+
+  &__avatar {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__right-cont {
+    margin-left: 1rem;
+    width: 100%;
+  }
+  &__name-cont {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__name {
+    @include mixins.mobile-subheader;
+  }
+  &__date {
+    @include mixins.mobile-subheader;
+    font-weight: 400;
+    color: colors.$primary-med;
+  }
+  &__comment {
+    @include mixins.mobile-body-copy;
+    margin-top: 0.5rem;
+  }
+
+  // HTML FOR DELETE AND LIKE ICONS - POTENTIALLY IMPLEMENTED LATER
+  //   &__icon-cont {
+  //     display: flex;
+  //     gap: 1rem;
+  //     margin-bottom: 1rem;
+  //   }
+  //   &__icon {
+  //     height: 1rem;
+  //     cursor: pointer;
+  //     opacity: 0.5;
+  //     transition: 0.05s linear;
+  //     box-sizing: content-box;
+  //     &:hover {
+  //       opacity: 0.75;
+  //     }
+  //     &:active {
+  //       opacity: 1;
+  //     }
+  //   }
+
+  //   &__like-counter {
+  //     font-size: 0.75rem;
+  //     color: colors.$primary-med;
+  //     margin: auto 0;
+  //     margin-left: 0rem;
+  //     margin-left: -0.625rem;
+
+  //     &--hidden {
+  //       display: none;
+  //     }
+  //   }
+}

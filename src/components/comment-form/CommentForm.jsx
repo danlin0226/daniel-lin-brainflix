@@ -1,12 +1,21 @@
 import "./CommentForm.scss";
 import commentIcon from "../../assets/images/icons/add_comment.svg";
-import Avatar from "../avatar/Avatar";
+import avatar from "../../assets/images/Mohan-muruge.jpg";
 
 export default function CommentForm() {
   return (
     <>
       <div className="form-section">
-        <Avatar />
+        <div className="form-section__avatar-cont">
+          <div className="form-section__avatar-placeholder">
+            <img
+              className="form-section__avatar"
+              src={avatar}
+              alt="display picture of user"
+              onError={(i) => (i.target.style.display = "none")}
+            />
+          </div>
+        </div>
         <form className="form" id="form">
           <div className="form__label-input">
             <label className="form__label" htmlFor="comment">
