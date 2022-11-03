@@ -25,7 +25,7 @@ export default function CommentForm() {
           <div className="form__button-cont">
             <img
               className="form__comment-icon"
-              alt="icon with arrow facing up"
+              alt="icon of a chat bubble"
               src={commentIcon}
             ></img>
             <button type="submit" className="form__submit">
@@ -34,7 +34,6 @@ export default function CommentForm() {
           </div>
         </form>
       </div>
-      ;
     </>
   );
 }
