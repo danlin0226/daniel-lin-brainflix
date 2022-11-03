@@ -1,0 +1,9 @@
+@use "../../styles/partials/mixins";
+
+.video-description {
+  padding: 0px 16px;
+
+  &__text {
+    @include mixins.mobile-body-copy;
+  }
+}

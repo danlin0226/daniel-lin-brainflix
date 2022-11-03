@@ -34,7 +34,7 @@ function Header() {
             className="header__upload-icon"
             alt="icon with arrow facing up"
             src={uploadIcon}
-          ></img>{" "}
+          ></img>
           <a
             className="header__upload-button header__upload--mobile-visible"
             href="#call to action"

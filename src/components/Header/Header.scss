@@ -62,11 +62,14 @@
     background-color: colors.$primary-color;
     @include mixins.mobile-label-buttons;
     text-decoration: none;
-    color: white;
+    color: colors.$primary-light;
     border-radius: 4px;
     height: 40px;
-    vertical-align: middle;
-    // position: absolute;
+    padding: 0 2rem;
+    &:hover {
+      background-color: colors.$secondary-color;
+    }
+
     &--mobile-hidden {
       display: none;
     }
@@ -77,6 +80,7 @@
     top: 0;
     bottom: 0;
     margin: auto auto;
-    left: 8px;
+    left: 10px;
+    pointer-events: none; //allows hover over absolute positioned icon
   }
 }

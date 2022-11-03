@@ -1,0 +1,6 @@
+@use "./styles/partials/mixins";
+
+.comment-counter {
+  padding: 16px;
+  @include mixins.mobile-subheader;
+}

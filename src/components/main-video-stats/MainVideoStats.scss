@@ -1,0 +1,45 @@
+@use "../../styles/partials/colors" as colors;
+@use "../../styles/partials/fonts" as fonts;
+@use "../../styles/partials/mixins" as mixins;
+
+.video-stats {
+  padding: 12px 0px;
+  margin: 0px 16px;
+  display: flex;
+  border-top: 1px solid colors.$secondary-med;
+  border-bottom: 1px solid colors.$secondary-med;
+
+  &__cont-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  &__cont-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  &__icon-info-cont {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__creator {
+    @include mixins.mobile-subheader;
+  }
+
+  &__info {
+    @include mixins.mobile-body-copy;
+    color: colors.$primary-med;
+  }
+
+  &__icon-cont {
+    width: 24px;
+    height: 18px;
+  }
+}
