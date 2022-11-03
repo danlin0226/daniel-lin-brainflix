@@ -1,0 +1,90 @@
+@use "../../styles/partials/colors" as colors;
+@use "../../styles/partials/mixins" as mixins;
+
+//mobile comment form
+.form-section {
+  display: flex;
+  border-bottom: 0.0625rem solid colors.$secondary-med;
+  margin-bottom: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+  margin-left: 1rem;
+
+  &__label-input {
+    display: flex;
+    flex-direction: column;
+  }
+  &__label {
+    @include mixins.mobile-label-buttons;
+    color: colors.$primary-med;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  &__name-input {
+    width: 100%;
+    height: 2.25rem;
+    border-radius: 0.25rem;
+    @include mixins.mobile-subheader;
+    font-weight: 400;
+    font-family: inherit; //form controls seem to not inherit font size and family
+    font-size: inherit;
+    border: 0.0625rem solid colors.$primary-med;
+    padding-left: 0.625rem;
+    &:focus {
+      outline: 0rem;
+      border: 0.0625rem solid colors.$primary-dark;
+    }
+
+    &--error {
+      outline: 0rem;
+      border: 0.0625rem solid red;
+    }
+  }
+
+  &__comment-input {
+    width: 100%;
+    resize: none;
+    border-radius: 0.25rem;
+    @include mixins.mobile-subheader;
+    font-weight: 400;
+    font-family: inherit; //form controls seem to not inherit font size and family
+    font-size: inherit;
+    border: 0.0625rem solid colors.$primary-med;
+    padding: 0.75rem;
+    &:focus {
+      outline: 0rem;
+      border: 0.0625rem solid colors.$primary-dark;
+    }
+    &--error {
+      outline: 0rem;
+      border: 0.0625rem solid red;
+    }
+  }
+
+  ::placeholder {
+    color: colors.$primary-dark;
+  }
+
+  &__submit {
+    display: flex;
+    width: 100%;
+    height: 2.5rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.25rem;
+    padding: 0 2rem;
+    border: none;
+    background-color: colors.$primary-dark;
+    color: colors.$primary-light;
+    @include mixins.mobile-subheader;
+    margin-bottom: 1rem;
+    &:hover {
+      background-color: colors.$secondary-dark;
+    }
+  }
+}

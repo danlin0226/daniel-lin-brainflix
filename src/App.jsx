@@ -2,8 +2,11 @@ import Header from "./components/header/Header";
 import MainVideo from "./components/main-video/MainVideo";
 import MainVideoTitle from "./components/main-video-title/MainVideoTitle";
 import "./styles/main.scss";
+import "./App.scss";
+
 import MainVideoStats from "./components/main-video-stats/MainVideoStats";
 import MainVideoDescription from "./components/main-video-description/MainVideoDescription";
+import CommentForm from "./components/comment-form/CommentForm";
 
 function App() {
   return (
@@ -16,7 +19,10 @@ function App() {
           <MainVideoStats />
           <MainVideoDescription />
         </section>
-        <section className="comments-section"></section>
+        <section className="comments-section">
+          <div className="comment-counter">3 comments</div>
+          <CommentForm />
+        </section>
         <section className="next-video-section"></section>
       </main>
     </>
