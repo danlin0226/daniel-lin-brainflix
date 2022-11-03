@@ -6,6 +6,7 @@
   display: flex;
   border-bottom: 0.0625rem solid colors.$secondary-med;
   margin-bottom: 1rem;
+  margin: 0px 16px;
 }
 
 .form {
@@ -14,6 +15,7 @@
   width: 100%;
   gap: 1rem;
   margin-left: 1rem;
+  margin-bottom: 16px;
 
   &__label-input {
     display: flex;
@@ -22,52 +24,34 @@
   &__label {
     @include mixins.mobile-label-buttons;
     color: colors.$primary-med;
-    font-weight: 600;
     margin-bottom: 0.25rem;
-  }
-  &__name-input {
-    width: 100%;
-    height: 2.25rem;
-    border-radius: 0.25rem;
-    @include mixins.mobile-subheader;
-    font-weight: 400;
-    font-family: inherit; //form controls seem to not inherit font size and family
-    font-size: inherit;
-    border: 0.0625rem solid colors.$primary-med;
-    padding-left: 0.625rem;
-    &:focus {
-      outline: 0rem;
-      border: 0.0625rem solid colors.$primary-dark;
-    }
-
-    &--error {
-      outline: 0rem;
-      border: 0.0625rem solid red;
-    }
   }
 
   &__comment-input {
     width: 100%;
     resize: none;
     border-radius: 0.25rem;
-    @include mixins.mobile-subheader;
-    font-weight: 400;
+    @include mixins.mobile-body-copy;
+    background-color: colors.$secondary-light;
     font-family: inherit; //form controls seem to not inherit font size and family
-    font-size: inherit;
-    border: 0.0625rem solid colors.$primary-med;
+    outline: 0.0625rem solid colors.$primary-med;
+    border: 0px;
     padding: 0.75rem;
     &:focus {
-      outline: 0rem;
-      border: 0.0625rem solid colors.$primary-dark;
+      outline: 2px solid colors.$primary-color;
     }
+
     &--error {
-      outline: 0rem;
-      border: 0.0625rem solid red;
+      outline: 0.0625rem solid #d22d2d;
     }
   }
 
   ::placeholder {
     color: colors.$primary-dark;
+  }
+
+  &__button-cont {
+    position: relative;
   }
 
   &__submit {
@@ -81,10 +65,20 @@
     border: none;
     background-color: colors.$primary-dark;
     color: colors.$primary-light;
-    @include mixins.mobile-subheader;
-    margin-bottom: 1rem;
+    background-color: colors.$primary-color;
+    @include mixins.mobile-label-buttons;
+    // margin-bottom: 1rem;
     &:hover {
-      background-color: colors.$secondary-dark;
+      background-color: colors.$secondary-color;
     }
+  }
+
+  &__comment-icon {
+    position: absolute;
+    top: 3px;
+    bottom: 0;
+    margin: auto auto;
+    left: 10px;
+    pointer-events: none; //allows hover over absolute positioned icon
   }
 }

@@ -1,30 +1,16 @@
 import "./CommentForm.scss";
-// import avatar from "../../assets/images/Mohan-muruge.jpg";
+import commentIcon from "../../assets/images/icons/add_comment.svg";
 import Avatar from "../avatar/Avatar";
 
 export default function CommentForm() {
   return (
     <>
-      <h2 className="comment-section__header">Join the Conversation</h2>
       <div className="form-section">
         <Avatar />
         <form className="form" id="form">
           <div className="form__label-input">
-            <label className="form__label" htmlFor="name">
-              NAME
-            </label>
-            <input
-              className="form__name-input"
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Enter your name"
-              autoComplete="off"
-            />
-          </div>
-          <div className="form__label-input">
             <label className="form__label" htmlFor="comment">
-              COMMENT
+              JOIN THE CONVERSATION
             </label>
             <textarea
               className="form__comment-input"
@@ -36,7 +22,12 @@ export default function CommentForm() {
               autoComplete="off"
             ></textarea>
           </div>
-          <div>
+          <div className="form__button-cont">
+            <img
+              className="form__comment-icon"
+              alt="icon with arrow facing up"
+              src={commentIcon}
+            ></img>
             <button type="submit" className="form__submit">
               COMMENT
             </button>
