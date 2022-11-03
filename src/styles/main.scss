@@ -1,4 +1,5 @@
 @use "./partials/fonts" as *;
+@use "./partials/colors" as *;
 
 html,
 body {
@@ -7,6 +8,7 @@ body {
   // line-height: 1;
   height: 100vh;
   box-sizing: border-box;
+  color: $primary-dark;
 }
 
 *,
