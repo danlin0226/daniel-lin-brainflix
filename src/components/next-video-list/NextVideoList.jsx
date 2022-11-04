@@ -1,11 +1,15 @@
 import "./NextVideoList.scss";
 
-export default function NextVideoList({ videos }) {
+export default function NextVideoList({ videos, clickHandler }) {
   return (
     <div className="next-vid-list">
       <h2 className="next-vid-list__header">NEXT VIDEOS</h2>
       {videos.map((video) => (
-        <article className="next-vid-list__video">
+        <article
+          className="next-vid-list__video"
+          key={video.id}
+          onClick={(event) => clickHandler(event, video.id)}
+        >
           <div className="next-vid-list__video-placeholder">
             <img
               className="next-vid-list__video-poster"

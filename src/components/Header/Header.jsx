@@ -17,7 +17,7 @@ function Header() {
           ></input>
           <a
             className="header__upload-button header__upload-button--mobile-hidden"
-            href="#call to action"
+            href="asf"
           >
             UPLOAD
           </a>
@@ -37,7 +37,7 @@ function Header() {
           ></img>
           <a
             className="header__upload-button header__upload--mobile-visible"
-            href="#call to action"
+            href="asfd"
           >
             UPLOAD
           </a>

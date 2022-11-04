@@ -3,6 +3,7 @@
 
 .next-vid-list {
   padding: 0px 16px;
+  padding-bottom: 1px;
 
   &__header {
     @include mixins.mobile-label-buttons;

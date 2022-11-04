@@ -1,7 +1,6 @@
 import "./MainVideo.scss";
 
 function MainVideo({ videoDetails }) {
-  console.log(videoDetails.image);
   return (
     <video
       className="main-video"

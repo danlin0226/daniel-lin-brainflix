@@ -5,7 +5,7 @@ export default function CommentList({ videoDetails }) {
   return (
     <section>
       {videoDetails.comments.map((comment) => (
-        <div className="comment-card">
+        <div className="comment-card" key={comment.id}>
           <div className="comment-card__avatar-placeholder">
             <img
               className="comment-card__avatar"

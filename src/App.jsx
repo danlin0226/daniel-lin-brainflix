@@ -16,15 +16,22 @@ import NextVideoList from "./components/next-video-list/NextVideoList";
 
 function App() {
   const defaultVideoId = "84e96018-4022-434e-80bf-000ce4cd12b8";
-  const testId = "99478bed-6428-49ed-8eaa-f245a5414336";
+  // const testId = "99478bed-6428-49ed-8eaa-f245a5414336";
 
   //define states
-  const [videoId, setVideoId] = useState(defaultVideoId);
-  console.log("video ID:", videoId);
-  const [videoDetails, setVideoDetails] = useState(getVideoDetails(videoId));
-  console.log("single video details:", videoDetails);
-  const [videos, setVideos] = useState(getVideos(videoId));
-  console.log("string with all videos", videos);
+  // const [videoId, setVideoId] = useState(defaultVideoId);
+  const [videoDetails, setVideoDetails] = useState(
+    getVideoDetails(defaultVideoId)
+  );
+  const [videos, setVideos] = useState(getVideos(defaultVideoId));
+
+  const clickHandler = (event, id) => {
+    // setVideoId(id);
+    // setVideoDetails(getVideoDetails(id));
+    // console.log(id);
+    console.log(id);
+    setVideos(getVideos(id));
+  };
 
   return (
     <>
@@ -42,7 +49,7 @@ function App() {
           <CommentList videoDetails={videoDetails} />
         </section>
         <section className="next-video-section">
-          <NextVideoList videos={videos} />
+          <NextVideoList videos={videos} clickHandler={clickHandler} />
         </section>
       </main>
     </>
