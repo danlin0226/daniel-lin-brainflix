@@ -63,6 +63,8 @@
     @include mixins.mobile-label-buttons;
     text-decoration: none;
     color: colors.$primary-light;
+    border: none;
+    width: 100%;
     border-radius: 4px;
     height: 40px;
     padding: 0 2rem;

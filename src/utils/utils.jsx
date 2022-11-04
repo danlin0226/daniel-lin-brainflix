@@ -3,6 +3,7 @@ import videoDetails from "../data/video-details.json";
 
 export const getVideos = (videoId) => {
   return videos.filter((video) => videoId !== video.id);
+  //   return videos;
 };
 
 export const getVideoDetails = (videoId) => {

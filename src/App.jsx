@@ -16,20 +16,16 @@ import NextVideoList from "./components/next-video-list/NextVideoList";
 
 function App() {
   const defaultVideoId = "84e96018-4022-434e-80bf-000ce4cd12b8";
-  // const testId = "99478bed-6428-49ed-8eaa-f245a5414336";
 
   //define states
-  // const [videoId, setVideoId] = useState(defaultVideoId);
-  const [videoDetails, setVideoDetails] = useState(
-    getVideoDetails(defaultVideoId)
-  );
-  const [videos, setVideos] = useState(getVideos(defaultVideoId));
+  const [videoId, setVideoId] = useState(defaultVideoId);
+  const [videoDetails, setVideoDetails] = useState(getVideoDetails(videoId));
+  const [videos, setVideos] = useState(getVideos(videoId));
 
   const clickHandler = (event, id) => {
-    // setVideoId(id);
-    // setVideoDetails(getVideoDetails(id));
-    // console.log(id);
-    console.log(id);
+    event.preventDefault();
+    setVideoId(id);
+    setVideoDetails(getVideoDetails(id));
     setVideos(getVideos(id));
   };
 

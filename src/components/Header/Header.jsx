@@ -15,12 +15,12 @@ function Header() {
             id="search"
             name="search"
           ></input>
-          <a
+          <button
             className="header__upload-button header__upload-button--mobile-hidden"
-            href="asf"
+            href="#"
           >
             UPLOAD
-          </a>
+          </button>
           <div className="header__avatar-cont">
             <img
               className="header__avatar"
@@ -35,12 +35,12 @@ function Header() {
             alt="icon with arrow facing up"
             src={uploadIcon}
           ></img>
-          <a
+          <button
             className="header__upload-button header__upload--mobile-visible"
-            href="asfd"
+            href="#"
           >
             UPLOAD
-          </a>
+          </button>
         </div>
       </header>
     </>
