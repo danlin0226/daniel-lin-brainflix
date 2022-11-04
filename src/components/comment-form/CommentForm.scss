@@ -13,7 +13,7 @@
   }
 
   &__avatar-placeholder {
-    min-width: 2.25rem;
+    width: 2.25rem;
     height: 2.25rem;
     background-color: colors.$secondary-med;
     border-radius: 50%;
@@ -21,8 +21,8 @@
   }
 
   &__avatar {
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     object-fit: cover;
   }

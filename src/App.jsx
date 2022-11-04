@@ -12,6 +12,7 @@ import CommentList from "./components/comment-list/CommentList";
 
 //importing utils
 import { getVideos, getVideoDetails } from "./utils/utils.jsx";
+import NextVideoList from "./components/next-video-list/NextVideoList";
 
 function App() {
   const defaultVideoId = "84e96018-4022-434e-80bf-000ce4cd12b8";
@@ -38,9 +39,11 @@ function App() {
         <section className="comments-section">
           <div className="comment-counter">{`${videoDetails.comments.length} Comments`}</div>
           <CommentForm />
-          <CommentList />
+          <CommentList videoDetails={videoDetails} />
         </section>
-        <section className="next-video-section"></section>
+        <section className="next-video-section">
+          <NextVideoList videos={videos} />
+        </section>
       </main>
     </>
   );
