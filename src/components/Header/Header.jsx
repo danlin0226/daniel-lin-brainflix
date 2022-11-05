@@ -1,6 +1,7 @@
 import logo from "../../assets/images/logo/BrainFlix-logo.svg";
 import avatar from "../../assets/images/Mohan-muruge.jpg";
 import uploadIcon from "../../assets/images/icons/upload.svg";
+import searchIcon from "../../assets/images/icons/search.svg";
 import "./Header.scss";
 
 function Header() {
@@ -9,18 +10,30 @@ function Header() {
       <header className="header">
         <img className="header__logo" src={logo} alt="Hi"></img>
         <div className="header__container">
-          <input
-            className="header__search-bar"
-            type="search"
-            id="search"
-            name="search"
-          ></input>
-          <button
-            className="header__upload-button header__upload-button--mobile-hidden"
-            href="#"
-          >
-            UPLOAD
-          </button>
+          <div className="header__search-cont">
+            <img
+              className="header__icon"
+              alt="icon of a magnifying glass"
+              src={searchIcon}
+            ></img>
+            <input
+              className="header__search-bar"
+              type="search"
+              id="search"
+              name="search"
+              placeholder="Search"
+            ></input>
+          </div>
+          <div className="header__button-cont header__button-cont--large-screen-hidden">
+            <img
+              className="header__icon"
+              alt="icon with arrow facing up"
+              src={uploadIcon}
+            ></img>
+            <button className="header__upload-button" href="#">
+              UPLOAD
+            </button>
+          </div>
           <div className="header__avatar-cont">
             <img
               className="header__avatar"
@@ -29,16 +42,13 @@ function Header() {
             ></img>
           </div>
         </div>
-        <div className="header__button-cont">
+        <div className="header__button-cont header__button-cont--mobile-hidden">
           <img
-            className="header__upload-icon"
+            className="header__icon"
             alt="icon with arrow facing up"
             src={uploadIcon}
           ></img>
-          <button
-            className="header__upload-button header__upload--mobile-visible"
-            href="#"
-          >
+          <button className="header__upload-button" href="#">
             UPLOAD
           </button>
         </div>
