@@ -3,12 +3,14 @@ import viewsIcon from "../../assets/images/icons/views.svg";
 import likesIcon from "../../assets/images/icons/likes.svg";
 import "./MainVideoStats.scss";
 
-export default function MainVideoStats({ videoDetails }) {
+export default function MainVideoStats({ videoDetails, dynamicTime }) {
   return (
     <div className="video-stats">
       <div className="video-stats__cont-left">
         <span className="video-stats__creator">{`By ${videoDetails.channel}`}</span>
-        <span className="video-stats__info">{videoDetails.timestamp}</span>
+        <span className="video-stats__info">
+          {dynamicTime(videoDetails.timestamp)}
+        </span>
       </div>
       <div className="video-stats__cont-right">
         <div className="video-stats__icon-info-cont">

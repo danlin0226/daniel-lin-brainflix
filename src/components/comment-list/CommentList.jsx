@@ -1,7 +1,7 @@
 import React from "react";
 import "./CommentList.scss";
 
-export default function CommentList({ videoDetails }) {
+export default function CommentList({ videoDetails, dynamicTime }) {
   return (
     <section>
       {videoDetails.comments.map((comment) => (
@@ -17,7 +17,9 @@ export default function CommentList({ videoDetails }) {
           <div className="comment-card__right-cont">
             <div className="comment-card__name-cont">
               <span className="comment-card__name">{comment.name}</span>
-              <span className="comment-card__date">{comment.timestamp}</span>
+              <span className="comment-card__date">
+                {dynamicTime(comment.timestamp)}
+              </span>
             </div>
             <p className="comment-card__comment">{comment.comment}</p>
 

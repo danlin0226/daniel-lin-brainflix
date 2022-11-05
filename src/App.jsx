@@ -9,10 +9,11 @@ import MainVideoStats from "./components/main-video-stats/MainVideoStats";
 import MainVideoDescription from "./components/main-video-description/MainVideoDescription";
 import CommentForm from "./components/comment-form/CommentForm";
 import CommentList from "./components/comment-list/CommentList";
+import NextVideoList from "./components/next-video-list/NextVideoList";
 
 //importing utils
 import { getVideos, getVideoDetails } from "./utils/utils.jsx";
-import NextVideoList from "./components/next-video-list/NextVideoList";
+import { dynamicTime } from "./utils/dateUtils";
 
 function App() {
   const defaultVideoId = "84e96018-4022-434e-80bf-000ce4cd12b8";
@@ -36,13 +37,16 @@ function App() {
         <section className="video-section">
           <MainVideo videoDetails={videoDetails} />
           <MainVideoTitle videoDetails={videoDetails} />
-          <MainVideoStats videoDetails={videoDetails} />
+          <MainVideoStats
+            videoDetails={videoDetails}
+            dynamicTime={dynamicTime}
+          />
           <MainVideoDescription videoDetails={videoDetails} />
         </section>
         <section className="comments-section">
           <div className="comment-counter">{`${videoDetails.comments.length} Comments`}</div>
           <CommentForm />
-          <CommentList videoDetails={videoDetails} />
+          <CommentList videoDetails={videoDetails} dynamicTime={dynamicTime} />
         </section>
         <section className="next-video-section">
           <NextVideoList videos={videos} clickHandler={clickHandler} />
