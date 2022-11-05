@@ -24,7 +24,15 @@ function Header() {
               placeholder="Search"
             ></input>
           </div>
-          <div className="header__button-cont header__button-cont--large-screen-hidden">
+          <div className="header__avatar-cont">
+            <img
+              className="header__avatar"
+              src={avatar}
+              alt="profile shot of a man"
+            ></img>
+          </div>
+          <div className="header__line-break"></div>
+          <div className="header__button-cont">
             <img
               className="header__icon"
               alt="icon with arrow facing up"
@@ -34,23 +42,6 @@ function Header() {
               UPLOAD
             </button>
           </div>
-          <div className="header__avatar-cont">
-            <img
-              className="header__avatar"
-              src={avatar}
-              alt="profile shot of a man"
-            ></img>
-          </div>
-        </div>
-        <div className="header__button-cont header__button-cont--mobile-hidden">
-          <img
-            className="header__icon"
-            alt="icon with arrow facing up"
-            src={uploadIcon}
-          ></img>
-          <button className="header__upload-button" href="#">
-            UPLOAD
-          </button>
         </div>
       </header>
     </>
