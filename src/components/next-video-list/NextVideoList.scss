@@ -1,0 +1,111 @@
+@use "../../styles/partials/colors" as colors;
+@use "../../styles/partials/mixins" as mixins;
+@use "../../styles/partials/breakpoints" as breakpoints;
+
+.next-vid-list {
+  padding: 0rem 1rem;
+  padding-bottom: 0.0625rem;
+
+  &__header {
+    @include mixins.mobile-label-buttons;
+    color: colors.$primary-med;
+    margin-bottom: 1rem;
+  }
+
+  &__video {
+    display: flex;
+    height: 3.75rem;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    // cursor: pointer;
+    // border: 2px solid red;
+  }
+
+  &__video-placeholder {
+    width: 6.25rem;
+    height: 100%;
+    border-radius: 0.25rem;
+    background-color: colors.$secondary-med;
+    cursor: pointer;
+  }
+
+  &__video-poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.25rem;
+  }
+
+  &__right-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    cursor: pointer;
+  }
+
+  &__video-title {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    @include mixins.mobile-subheader;
+
+    //truncates the title so it doesn't go beyond two lines
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__video-channel {
+    @include mixins.mobile-subheader;
+    font-weight: 400;
+  }
+}
+
+@include breakpoints.medium {
+  .next-vid-list {
+    padding: 0rem 2.25rem;
+    padding-bottom: 0.0625rem;
+
+    &__header {
+      @include mixins.desk-tab-label-buttons;
+      margin: 1.5rem 0rem;
+    }
+
+    &__video {
+      margin-bottom: 1.5rem;
+      height: 4.375rem;
+    }
+
+    &__video-placeholder {
+      width: 7.5rem;
+    }
+
+    &__right-cont {
+      flex: 0 1 auto;
+      width: 10.6875rem;
+    }
+
+    &__video-title {
+      @include mixins.desk-tab-subheader;
+    }
+
+    &__video-channel {
+      @include mixins.desk-tab-subheader;
+      font-weight: 400;
+    }
+  }
+}
+@include breakpoints.large {
+  .next-vid-list {
+    height: 100%;
+    padding: 0rem 9rem 0 1.5rem;
+    border-left: 0.0625rem solid colors.$secondary-med;
+
+    &__header {
+      @include mixins.desk-tab-label-buttons;
+      margin: 0rem 0rem;
+      padding: 1.5rem 0rem;
+    }
+  }
+}

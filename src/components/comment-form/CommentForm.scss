@@ -1,0 +1,175 @@
+@use "../../styles/partials/colors" as colors;
+@use "../../styles/partials/mixins" as mixins;
+@use "../../styles/partials/breakpoints" as breakpoints;
+
+//mobile comment form
+.form-section {
+  display: flex;
+  border-bottom: 0.0625rem solid colors.$secondary-med;
+  margin-bottom: 1rem;
+  margin: 0rem 1rem;
+
+  &__avatar-cont {
+    display: flex;
+  }
+
+  &__avatar-placeholder {
+    width: 2.25rem;
+    height: 2.25rem;
+    background-color: colors.$secondary-med;
+    border-radius: 50%;
+    margin-top: 1.4375rem;
+  }
+
+  &__avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+
+  &__label-input {
+    display: flex;
+    flex-direction: column;
+  }
+  &__label {
+    @include mixins.mobile-label-buttons;
+    color: colors.$primary-med;
+    margin-bottom: 0.25rem;
+  }
+
+  &__comment-input {
+    width: 100%;
+    resize: none;
+    border-radius: 0.25rem;
+    @include mixins.mobile-body-copy;
+    background-color: colors.$secondary-light;
+    font-family: inherit; //form controls seem to not inherit font size and family
+    outline: 0.0625rem solid colors.$primary-med;
+    border: 0rem;
+    padding: 0.75rem;
+    &:focus {
+      outline: 0.125rem solid colors.$primary-color;
+    }
+
+    &--error {
+      outline: 0.0625rem solid #d22d2d;
+    }
+  }
+
+  ::placeholder {
+    color: colors.$primary-dark;
+  }
+
+  &__button-cont {
+    position: relative;
+  }
+
+  &__submit {
+    display: flex;
+    width: 100%;
+    height: 2.5rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.25rem;
+    padding: 0 2rem;
+    border: none;
+    background-color: colors.$primary-dark;
+    color: colors.$primary-light;
+    background-color: colors.$primary-color;
+    @include mixins.mobile-label-buttons;
+    cursor: pointer;
+
+    &:hover {
+      background-color: colors.$secondary-color;
+    }
+  }
+
+  &__comment-icon {
+    position: absolute;
+    top: 0.1875rem;
+    bottom: 0;
+    margin: auto auto;
+    left: 0.625rem;
+    pointer-events: none; //allows hover over absolute positioned icon
+  }
+}
+
+@include breakpoints.medium {
+  .form-section {
+    border-bottom: 0.0625rem solid colors.$secondary-med;
+    margin: 0rem 2.25rem;
+
+    &__avatar-placeholder {
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-top: 1.4375rem;
+    }
+
+    &__avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    margin-bottom: 2.25rem;
+
+    &__label-input {
+      flex: 1;
+    }
+
+    &__label {
+      @include mixins.desk-tab-label-buttons;
+    }
+
+    &__comment-input {
+      height: 2.5rem;
+      @include mixins.desk-tab-body-copy;
+      font-family: inherit; //form controls seem to not inherit font size and family
+      padding: 0.5rem 0.75rem;
+    }
+
+    &__button-cont {
+      display: flex;
+      align-items: flex-end;
+      width: 9.375rem;
+    }
+
+    &__submit {
+      @include mixins.desk-tab-label-buttons;
+    }
+
+    &__comment-icon {
+      position: absolute;
+
+      top: auto;
+      bottom: 0.4375rem;
+    }
+  }
+}
+
+@include breakpoints.large {
+  .form-section {
+    margin: 0 9rem 0;
+    margin-right: 0rem;
+    padding-right: 1.5rem;
+    border-bottom: none;
+  }
+  .form {
+    margin-left: 2.25rem;
+  }
+}
