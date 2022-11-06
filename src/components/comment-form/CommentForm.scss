@@ -1,5 +1,6 @@
 @use "../../styles/partials/colors" as colors;
 @use "../../styles/partials/mixins" as mixins;
+@use "../../styles/partials/breakpoints" as breakpoints;
 
 //mobile comment form
 .form-section {
@@ -99,5 +100,64 @@
     margin: auto auto;
     left: 10px;
     pointer-events: none; //allows hover over absolute positioned icon
+  }
+}
+
+@include breakpoints.medium {
+  .form-section {
+    border-bottom: 0.0625rem solid colors.$secondary-med;
+    margin: 0px 36px;
+
+    &__avatar-placeholder {
+      width: 40px;
+      height: 40px;
+      margin-top: 1.4375rem;
+    }
+
+    &__avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    margin-bottom: 36px;
+
+    &__label-input {
+      flex: 1;
+    }
+
+    &__label {
+      @include mixins.desk-tab-label-buttons;
+    }
+
+    &__comment-input {
+      height: 40px;
+      @include mixins.desk-tab-body-copy;
+      font-family: inherit; //form controls seem to not inherit font size and family
+      padding: 8px 12px;
+    }
+
+    &__button-cont {
+      display: flex;
+      align-items: flex-end;
+      width: 150px;
+    }
+
+    &__submit {
+      @include mixins.desk-tab-label-buttons;
+    }
+
+    &__comment-icon {
+      position: absolute;
+
+      top: auto;
+      bottom: 7px;
+    }
   }
 }

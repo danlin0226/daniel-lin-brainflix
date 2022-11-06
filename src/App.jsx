@@ -36,20 +36,29 @@ function App() {
       <main>
         <section className="video-section">
           <MainVideo videoDetails={videoDetails} />
-          <MainVideoTitle videoDetails={videoDetails} />
-          <MainVideoStats
-            videoDetails={videoDetails}
-            dynamicTime={dynamicTime}
-          />
-          <MainVideoDescription videoDetails={videoDetails} />
         </section>
-        <section className="comments-section">
-          <div className="comment-counter">{`${videoDetails.comments.length} Comments`}</div>
-          <CommentForm />
-          <CommentList videoDetails={videoDetails} dynamicTime={dynamicTime} />
-        </section>
-        <section className="next-video-section">
-          <NextVideoList videos={videos} clickHandler={clickHandler} />
+        <section className="content">
+          <div className="content__left">
+            <section className="video-details">
+              <MainVideoTitle videoDetails={videoDetails} />
+              <MainVideoStats
+                videoDetails={videoDetails}
+                dynamicTime={dynamicTime}
+              />
+            </section>
+            <MainVideoDescription videoDetails={videoDetails} />
+            <section className="comments-section">
+              <div className="comment-counter">{`${videoDetails.comments.length} Comments`}</div>
+              <CommentForm />
+              <CommentList
+                videoDetails={videoDetails}
+                dynamicTime={dynamicTime}
+              />
+            </section>
+          </div>
+          <section className="next-video-section">
+            <NextVideoList videos={videos} clickHandler={clickHandler} />
+          </section>
         </section>
       </main>
     </>

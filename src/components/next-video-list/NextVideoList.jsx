@@ -2,7 +2,7 @@ import "./NextVideoList.scss";
 
 export default function NextVideoList({ videos, clickHandler }) {
   return (
-    <div className="next-vid-list">
+    <aside className="next-vid-list">
       <h2 className="next-vid-list__header">NEXT VIDEOS</h2>
       {videos.map((video) => (
         <article
@@ -26,6 +26,6 @@ export default function NextVideoList({ videos, clickHandler }) {
           </div>
         </article>
       ))}
-    </div>
+    </aside>
   );
 }

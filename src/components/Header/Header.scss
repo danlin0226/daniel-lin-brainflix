@@ -115,6 +115,7 @@
     }
     &__search-bar {
       height: 40px;
+      @include mixins.desk-tab-body-copy;
     }
 
     &__avatar-cont {
@@ -130,6 +131,9 @@
       margin-top: 0px;
       order: 1;
       margin-right: 32px;
+    }
+    &__upload-button {
+      @include mixins.desk-tab-label-buttons;
     }
   }
 }
@@ -153,6 +157,7 @@
     }
     &__search-bar {
       height: 40px;
+      @include mixins.desk-tab-body-copy;
     }
 
     &__avatar-cont {
@@ -167,7 +172,11 @@
       width: 150px;
       margin-top: 0px;
       order: 1;
-      margin-right: 32px;
+      margin-right: 40px;
+    }
+
+    &__upload-button {
+      @include mixins.desk-tab-label-buttons;
     }
   }
 }

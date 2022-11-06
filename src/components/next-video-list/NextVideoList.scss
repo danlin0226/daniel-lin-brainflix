@@ -1,5 +1,6 @@
 @use "../../styles/partials/colors" as colors;
 @use "../../styles/partials/mixins" as mixins;
+@use "../../styles/partials/breakpoints" as breakpoints;
 
 .next-vid-list {
   padding: 0px 16px;
@@ -54,7 +55,40 @@
   &__video-channel {
     @include mixins.mobile-subheader;
     font-weight: 400;
-    // margin-bottom: 0;
-    // margin-top: 0;
+  }
+}
+
+@include breakpoints.medium {
+  .next-vid-list {
+    padding: 0px 36px;
+    padding-bottom: 1px;
+
+    &__header {
+      @include mixins.desk-tab-label-buttons;
+      margin: 24px 0px;
+    }
+
+    &__video {
+      margin-bottom: 24px;
+      height: 80px;
+    }
+
+    &__video-placeholder {
+      width: 120px;
+    }
+
+    &__right-cont {
+      flex: 0 1 auto;
+      width: 171px;
+    }
+
+    &__video-title {
+      @include mixins.desk-tab-subheader;
+    }
+
+    &__video-channel {
+      @include mixins.desk-tab-subheader;
+      font-weight: 400;
+    }
   }
 }
