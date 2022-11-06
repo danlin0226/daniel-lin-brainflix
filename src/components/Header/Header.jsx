@@ -8,7 +8,9 @@ function Header() {
   return (
     <>
       <header className="header">
-        <img className="header__logo" src={logo} alt="Hi"></img>
+        <a className="header__logo-link" href="#home">
+          <img className="header__logo" src={logo} alt="Hi"></img>
+        </a>
         <div className="header__container">
           <div className="header__search-cont">
             <img

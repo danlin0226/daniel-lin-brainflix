@@ -86,7 +86,8 @@
     color: colors.$primary-light;
     background-color: colors.$primary-color;
     @include mixins.mobile-label-buttons;
-    // margin-bottom: 1rem;
+    cursor: pointer;
+
     &:hover {
       background-color: colors.$secondary-color;
     }

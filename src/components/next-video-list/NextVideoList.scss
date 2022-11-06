@@ -17,6 +17,8 @@
     height: 3.75rem;
     gap: 1rem;
     margin-bottom: 1rem;
+    // cursor: pointer;
+    // border: 2px solid red;
   }
 
   &__video-placeholder {
@@ -24,6 +26,7 @@
     height: 100%;
     border-radius: 0.25rem;
     background-color: colors.$secondary-med;
+    cursor: pointer;
   }
 
   &__video-poster {
@@ -38,6 +41,7 @@
     flex-direction: column;
     justify-content: space-between;
     flex: 1;
+    cursor: pointer;
   }
 
   &__video-title {
