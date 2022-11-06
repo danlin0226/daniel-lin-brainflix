@@ -70,7 +70,7 @@
 
     &__video {
       margin-bottom: 24px;
-      height: 80px;
+      height: 70px;
     }
 
     &__video-placeholder {
@@ -89,6 +89,19 @@
     &__video-channel {
       @include mixins.desk-tab-subheader;
       font-weight: 400;
+    }
+  }
+}
+@include breakpoints.large {
+  .next-vid-list {
+    height: 100%;
+    padding: 0px 144px 0 24px;
+    border-left: 0.0625rem solid colors.$secondary-med;
+
+    &__header {
+      @include mixins.desk-tab-label-buttons;
+      margin: 0px 0px;
+      padding: 24px 0px;
     }
   }
 }

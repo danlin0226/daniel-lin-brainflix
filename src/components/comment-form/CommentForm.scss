@@ -161,3 +161,15 @@
     }
   }
 }
+
+@include breakpoints.large {
+  .form {
+    margin-left: 36px;
+  }
+
+  .form-section {
+    margin: 0 144px 0;
+    margin-right: 0px;
+    padding-right: 24px;
+  }
+}

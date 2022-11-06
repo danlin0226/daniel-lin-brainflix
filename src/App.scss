@@ -20,8 +20,8 @@
 
 @include breakpoints.large {
   .comment-counter {
-    padding: 16px;
-    @include mixins.desk-tab-subheader;
+    margin: 0 24px 24px 144px;
+    padding-top: 16px;
   }
 
   .content {

@@ -11,7 +11,7 @@ export default function CommentForm() {
             <img
               className="form-section__avatar"
               src={avatar}
-              alt="display picture of user"
+              alt="display pic of user"
               onError={(i) => (i.target.style.display = "none")}
             />
           </div>

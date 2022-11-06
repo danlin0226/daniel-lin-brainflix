@@ -19,6 +19,6 @@
 @include breakpoints.large {
   .main-video-title {
     @include mixins.desk-tab-page-header;
-    padding: 0 144px;
+    padding: 0px 24px 0px 144px;
   }
 }

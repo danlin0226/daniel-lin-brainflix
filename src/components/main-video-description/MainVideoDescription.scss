@@ -20,3 +20,9 @@
     }
   }
 }
+
+@include breakpoints.large {
+  .video-description {
+    padding: 0px 24px 0 144px;
+  }
+}
