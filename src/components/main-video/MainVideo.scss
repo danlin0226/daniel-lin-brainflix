@@ -13,12 +13,12 @@
 
 @include breakpoints.medium {
   .main-video-cont {
-    padding: 0 36px;
+    padding: 0 2.25rem;
   }
 }
 
 @include breakpoints.large {
   .main-video-cont {
-    padding: 0 224px;
+    padding: 0 14rem;
   }
 }

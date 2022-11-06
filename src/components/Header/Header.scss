@@ -5,8 +5,8 @@
 .header {
   display: flex;
   flex-direction: column;
-  padding: 16px;
-  gap: 16px;
+  padding: 1rem;
+  gap: 1rem;
   &__container {
     display: flex;
     align-items: center;
@@ -19,24 +19,24 @@
   }
 
   &__logo {
-    max-width: 120px;
-    max-height: 25px;
+    max-width: 7.5rem;
+    max-height: 1.5625rem;
     align-self: center;
   }
 
   &__search-bar {
     width: 100%;
-    height: 36px;
+    height: 2.25rem;
     border-radius: 0.25rem;
     background-color: colors.$secondary-light;
     @include mixins.mobile-body-copy;
     font-family: inherit; //form controls seem to not inherit font size and family
     outline: 0.0625rem solid colors.$primary-med;
-    border: 0px;
-    padding-left: 36px;
-    padding-right: 12px;
+    border: 0rem;
+    padding-left: 2.25rem;
+    padding-right: 0.75rem;
     &:focus {
-      outline: 2px solid colors.$primary-color;
+      outline: 0.125rem solid colors.$primary-color;
     }
     &--error {
       outline: 0rem;
@@ -52,7 +52,7 @@
     height: 2.25rem;
     background-color: colors.$primary-color;
     border-radius: 50%;
-    margin-left: 16px;
+    margin-left: 1rem;
   }
 
   &__avatar {
@@ -65,7 +65,7 @@
   &__button-cont {
     position: relative;
     flex-basis: 100%;
-    margin-top: 16px;
+    margin-top: 1rem;
   }
 
   &__upload-button {
@@ -78,8 +78,8 @@
     color: colors.$primary-light;
     border: none;
     width: 100%;
-    border-radius: 4px;
-    height: 40px;
+    border-radius: 0.25rem;
+    height: 2.5rem;
     padding: 0 2rem;
     &:hover {
       background-color: colors.$secondary-color;
@@ -91,14 +91,14 @@
     top: 0;
     bottom: 0;
     margin: auto auto;
-    left: 10px;
+    left: 0.625rem;
     pointer-events: none; //allows hover over absolute positioned icon
   }
 }
 
 @include breakpoints.medium {
   .header {
-    padding: 16px 36px;
+    padding: 1rem 2.25rem;
     flex-direction: row;
     justify-content: space-between;
 
@@ -111,26 +111,26 @@
       position: relative;
       flex: 1;
       order: 0;
-      margin-right: 24px;
+      margin-right: 1.5rem;
     }
     &__search-bar {
-      height: 40px;
+      height: 2.5rem;
       @include mixins.desk-tab-body-copy;
     }
 
     &__avatar-cont {
-      margin-left: 0px;
-      width: 40px;
-      height: 40px;
+      margin-left: 0rem;
+      width: 2.5rem;
+      height: 2.5rem;
       order: 2;
     }
 
     &__button-cont {
       flex: 0 1 auto;
-      width: 150px;
-      margin-top: 0px;
+      width: 9.375rem;
+      margin-top: 0rem;
       order: 1;
-      margin-right: 32px;
+      margin-right: 2rem;
     }
     &__upload-button {
       @include mixins.desk-tab-label-buttons;
@@ -140,7 +140,7 @@
 
 @include breakpoints.large {
   .header {
-    padding: 16px 144px;
+    padding: 1rem 9rem;
     flex-direction: row;
     justify-content: space-between;
 
@@ -153,26 +153,26 @@
       position: relative;
       flex: 1;
       order: 0;
-      margin-right: 24px;
+      margin-right: 1.5rem;
     }
     &__search-bar {
-      height: 40px;
+      height: 2.5rem;
       @include mixins.desk-tab-body-copy;
     }
 
     &__avatar-cont {
-      margin-left: 0px;
-      width: 40px;
-      height: 40px;
+      margin-left: 0rem;
+      width: 2.5rem;
+      height: 2.5rem;
       order: 2;
     }
 
     &__button-cont {
       flex: 0 1 auto;
-      width: 150px;
-      margin-top: 0px;
+      width: 9.375rem;
+      margin-top: 0rem;
       order: 1;
-      margin-right: 40px;
+      margin-right: 2.5rem;
     }
 
     &__upload-button {
