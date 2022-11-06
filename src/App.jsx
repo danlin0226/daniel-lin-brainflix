@@ -48,7 +48,11 @@ function App() {
             </section>
             <MainVideoDescription videoDetails={videoDetails} />
             <section className="comments-section">
-              <div className="comment-counter">{`${videoDetails.comments.length} Comments`}</div>
+              <div className="comment-counter">
+                {videoDetails.comments.length > 0
+                  ? `${videoDetails.comments.length} Comments`
+                  : "Be the first to comment!"}
+              </div>
               <CommentForm />
               <CommentList
                 videoDetails={videoDetails}
