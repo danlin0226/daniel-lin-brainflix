@@ -7,7 +7,7 @@
   display: flex;
   border-bottom: 0.0625rem solid colors.$secondary-med;
   margin-bottom: 1rem;
-  margin: 0px 16px;
+  margin: 0rem 1rem;
 
   &__avatar-cont {
     display: flex;
@@ -28,14 +28,13 @@
     object-fit: cover;
   }
 }
-
 .form {
   display: flex;
   flex-direction: column;
   width: 100%;
   gap: 1rem;
   margin-left: 1rem;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 
   &__label-input {
     display: flex;
@@ -55,10 +54,10 @@
     background-color: colors.$secondary-light;
     font-family: inherit; //form controls seem to not inherit font size and family
     outline: 0.0625rem solid colors.$primary-med;
-    border: 0px;
+    border: 0rem;
     padding: 0.75rem;
     &:focus {
-      outline: 2px solid colors.$primary-color;
+      outline: 0.125rem solid colors.$primary-color;
     }
 
     &--error {
@@ -95,10 +94,10 @@
 
   &__comment-icon {
     position: absolute;
-    top: 3px;
+    top: 0.1875rem;
     bottom: 0;
     margin: auto auto;
-    left: 10px;
+    left: 0.625rem;
     pointer-events: none; //allows hover over absolute positioned icon
   }
 }
@@ -106,11 +105,11 @@
 @include breakpoints.medium {
   .form-section {
     border-bottom: 0.0625rem solid colors.$secondary-med;
-    margin: 0px 36px;
+    margin: 0rem 2.25rem;
 
     &__avatar-placeholder {
-      width: 40px;
-      height: 40px;
+      width: 2.5rem;
+      height: 2.5rem;
       margin-top: 1.4375rem;
     }
 
@@ -125,8 +124,8 @@
   .form {
     display: flex;
     flex-direction: row;
-    gap: 24px;
-    margin-bottom: 36px;
+    gap: 1.5rem;
+    margin-bottom: 2.25rem;
 
     &__label-input {
       flex: 1;
@@ -137,16 +136,16 @@
     }
 
     &__comment-input {
-      height: 40px;
+      height: 2.5rem;
       @include mixins.desk-tab-body-copy;
       font-family: inherit; //form controls seem to not inherit font size and family
-      padding: 8px 12px;
+      padding: 0.5rem 0.75rem;
     }
 
     &__button-cont {
       display: flex;
       align-items: flex-end;
-      width: 150px;
+      width: 9.375rem;
     }
 
     &__submit {
@@ -157,19 +156,19 @@
       position: absolute;
 
       top: auto;
-      bottom: 7px;
+      bottom: 0.4375rem;
     }
   }
 }
 
 @include breakpoints.large {
-  .form {
-    margin-left: 36px;
-  }
-
   .form-section {
-    margin: 0 144px 0;
-    margin-right: 0px;
-    padding-right: 24px;
+    margin: 0 9rem 0;
+    margin-right: 0rem;
+    padding-right: 1.5rem;
+    border-bottom: none;
+  }
+  .form {
+    margin-left: 2.25rem;
   }
 }
