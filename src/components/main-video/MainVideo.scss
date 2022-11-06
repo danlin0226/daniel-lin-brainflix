@@ -1,3 +1,24 @@
+@use "../../styles/partials/colors" as colors;
+@use "../../styles/partials/breakpoints" as breakpoints;
+
+.main-video-cont {
+  background-color: colors.$secondary-dark;
+}
+
 .main-video {
   width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+@include breakpoints.medium {
+  .main-video-cont {
+    padding: 0 2.25rem;
+  }
+}
+
+@include breakpoints.large {
+  .main-video-cont {
+    padding: 0 14rem;
+  }
 }

@@ -1,9 +1,28 @@
 @use "../../styles/partials/mixins";
+@use "../../styles/partials/breakpoints" as breakpoints;
 
 .video-description {
-  padding: 0px 16px;
+  padding: 0rem 1rem;
 
   &__text {
     @include mixins.mobile-body-copy;
+    margin-bottom: 0rem;
+  }
+}
+
+@include breakpoints.medium {
+  .video-description {
+    padding: 0rem 2.25rem;
+    &__text {
+      margin-top: 1.5rem;
+      @include mixins.desk-tab-body-copy;
+      margin-bottom: 2.25rem;
+    }
+  }
+}
+
+@include breakpoints.large {
+  .video-description {
+    padding: 0rem 1.5rem 0 9rem;
   }
 }

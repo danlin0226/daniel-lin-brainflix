@@ -1,32 +1,33 @@
 @use "../../styles/partials/colors" as colors;
 @use "../../styles/partials/fonts" as fonts;
 @use "../../styles/partials/mixins" as mixins;
+@use "../../styles/partials/breakpoints" as breakpoints;
 
 .video-stats {
-  padding: 12px 0px;
-  margin: 0px 16px;
+  padding: 0.75rem 0rem;
+  margin: 0rem 1rem;
   display: flex;
-  border-top: 1px solid colors.$secondary-med;
-  border-bottom: 1px solid colors.$secondary-med;
+  border-top: 0.0625rem solid colors.$secondary-med;
+  border-bottom: 0.0625rem solid colors.$secondary-med;
 
   &__cont-left {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 12px;
+    gap: 0.75rem;
   }
   &__cont-right {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 12px;
+    gap: 0.75rem;
   }
 
   &__icon-info-cont {
     display: flex;
-    gap: 8px;
+    gap: 0.5rem;
   }
 
   &__creator {
@@ -39,7 +40,79 @@
   }
 
   &__icon-cont {
-    width: 24px;
-    height: 18px;
+    width: 1.5rem;
+    height: 1.125rem;
+  }
+}
+
+@include breakpoints.medium {
+  .video-stats {
+    padding: 0rem 0rem 0.5rem 0rem;
+    margin: 0rem 2.25rem;
+    border-top: none;
+    justify-content: space-between;
+
+    &__cont-left,
+    &__cont-right {
+      flex: 0 1 auto;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 1rem;
+    }
+
+    &__icon-info-cont {
+      gap: 0.5rem;
+    }
+
+    &__creator {
+      @include mixins.desk-tab-subheader;
+    }
+
+    &__info {
+      @include mixins.desk-tab-subheader;
+      color: colors.$primary-med;
+      font-weight: 400;
+    }
+
+    &__icon-cont {
+      width: auto;
+      height: auto;
+    }
+  }
+}
+
+@include breakpoints.large {
+  .video-stats {
+    padding: 0rem 0rem 0.5rem 0rem;
+    margin: 0rem 1.5rem 0rem 9rem;
+    border-top: none;
+    justify-content: space-between;
+
+    &__cont-left,
+    &__cont-right {
+      flex: 0 1 auto;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 1rem;
+    }
+
+    &__icon-info-cont {
+      gap: 0.5rem;
+    }
+
+    &__creator {
+      @include mixins.desk-tab-subheader;
+    }
+
+    &__info {
+      @include mixins.desk-tab-subheader;
+      color: colors.$primary-med;
+      font-weight: 400;
+    }
+
+    &__icon-cont {
+      width: auto;
+      height: auto;
+    }
   }
 }

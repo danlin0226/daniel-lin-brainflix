@@ -1,9 +1,24 @@
 @use "../../styles/partials/mixins" as mixins;
+@use "../../styles/partials/breakpoints" as breakpoints;
 
 .main-video-title {
   @include mixins.mobile-page-header; //this text is too bold vs mockup but no other font weights available
-  font-size: 24px;
-  margin-top: 24px;
-  margin-bottom: 16px;
-  padding: 0 16px;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+}
+
+@include breakpoints.medium {
+  .main-video-title {
+    @include mixins.desk-tab-page-header;
+    padding: 0 2.25rem;
+  }
+}
+
+@include breakpoints.large {
+  .main-video-title {
+    @include mixins.desk-tab-page-header;
+    padding: 0rem 1.5rem 0rem 9rem;
+  }
 }

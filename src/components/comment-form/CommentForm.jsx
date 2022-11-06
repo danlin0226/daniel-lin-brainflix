@@ -1,12 +1,21 @@
 import "./CommentForm.scss";
 import commentIcon from "../../assets/images/icons/add_comment.svg";
-import Avatar from "../avatar/Avatar";
+import avatar from "../../assets/images/Mohan-muruge.jpg";
 
 export default function CommentForm() {
   return (
     <>
       <div className="form-section">
-        <Avatar />
+        <div className="form-section__avatar-cont">
+          <div className="form-section__avatar-placeholder">
+            <img
+              className="form-section__avatar"
+              src={avatar}
+              alt="display pic of user"
+              onError={(i) => (i.target.style.display = "none")}
+            />
+          </div>
+        </div>
         <form className="form" id="form">
           <div className="form__label-input">
             <label className="form__label" htmlFor="comment">
@@ -25,7 +34,7 @@ export default function CommentForm() {
           <div className="form__button-cont">
             <img
               className="form__comment-icon"
-              alt="icon with arrow facing up"
+              alt="icon of a chat bubble"
               src={commentIcon}
             ></img>
             <button type="submit" className="form__submit">
@@ -34,7 +43,6 @@ export default function CommentForm() {
           </div>
         </form>
       </div>
-      ;
     </>
   );
 }
