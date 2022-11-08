@@ -14,6 +14,7 @@ import NextVideoList from "./components/next-video-list/NextVideoList";
 //importing utils
 import { getVideos, getVideoDetails } from "./utils/utils.jsx";
 import { dynamicTime } from "./utils/dateUtils";
+import UploadForm from "./components/upload-form/UploadForm";
 
 function App() {
   const defaultVideoId = "84e96018-4022-434e-80bf-000ce4cd12b8";
@@ -63,6 +64,9 @@ function App() {
           <section className="next-video-section">
             <NextVideoList videos={videos} clickHandler={clickHandler} />
           </section>
+        </section>
+        <section>
+          <UploadForm />
         </section>
       </main>
     </>
