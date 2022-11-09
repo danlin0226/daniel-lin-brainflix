@@ -11,6 +11,12 @@ body {
   color: $primary-dark;
 }
 
+input,
+textarea,
+button {
+  font-family: "Avenir Next";
+}
+
 *,
 *::before,
 *::after {

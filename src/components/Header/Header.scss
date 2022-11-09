@@ -75,12 +75,17 @@
     margin-top: 1rem;
   }
 
+  &__upload-button-link {
+    text-decoration: none;
+  }
+
   &__upload-button {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: colors.$primary-color;
     @include mixins.mobile-label-buttons;
+    font-family: inherit;
     text-decoration: none;
     color: colors.$primary-light;
     border: none;
@@ -92,6 +97,7 @@
 
     &:hover {
       background-color: colors.$secondary-color;
+      text-decoration: none;
     }
   }
 

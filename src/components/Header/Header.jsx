@@ -42,9 +42,9 @@ function Header() {
               alt="icon with arrow facing up"
               src={uploadIcon}
             ></img>
-            <button className="header__upload-button" href="#">
-              UPLOAD
-            </button>
+            <Link to="/upload" className="header__upload-button-link">
+              <button className="header__upload-button">UPLOAD</button>
+            </Link>
           </div>
         </div>
       </header>
