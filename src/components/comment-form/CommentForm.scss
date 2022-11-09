@@ -83,6 +83,7 @@
     padding: 0 2rem;
     border: none;
     color: colors.$primary-light;
+    background-color: colors.$primary-color;
     @include mixins.mobile-label-buttons;
     cursor: pointer;
 
