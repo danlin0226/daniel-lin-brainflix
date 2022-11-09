@@ -15,47 +15,34 @@ import CommentList from "../../components/comment-list/CommentList";
 import NextVideoList from "../../components/next-video-list/NextVideoList";
 import { useEffect } from "react";
 
-// const API_URL = "https://project-2-api.herokuapp.com";
-// const API_GET_VIDEOS = "/videos";
-
-// const API_URL_AUTH = `${API_URL}?api_key=${process.env.REACT_APP_API_KEY}`;
-// const getVideos = ""
-
-// console.log(SEARCH_URL);
-
 export default function VideosPage() {
-  const defaultVideoId = "84e96018-4022-434e-80bf-000ce4cd12b8";
+  const defaultVideoId = "c05b9a93-8682-4ab6-aff2-92ebb4bbfc14";
 
   //define states
   const [videoId, setVideoId] = useState(defaultVideoId);
 
-  const [videoDetails, setVideoDetails] = useState({});
   const [videos, setVideos] = useState([]);
+  const [videoDetails, setVideoDetails] = useState({});
 
-  console.log(videos);
-  console.log(videoDetails);
-
+  //effect hook for setting videos
   useEffect(() => {
-    const fetchData = async () => {
-      const x = await getVideos(videoId);
-      setVideos(x);
+    const fetchVideosData = async () => {
+      const request = await getVideos(videoId);
+      console.log("get videos result:", request);
+      setVideos(request);
     };
-    const fetchDataTwo = async () => {
-      const y = await getVideoDetails(videoId);
-      setVideoDetails(y);
-    };
-    fetchData();
-    fetchDataTwo();
+    fetchVideosData();
   }, [videoId]);
 
-  // useEffect(() => {
-  //   const fetchDataTwo = async () => {
-  //     const y = await getVideoDetails(videoId);
-  //     setVideoDetails(y);
-  //     console.log("herro:", y);
-  //   };
-  //   fetchDataTwo();
-  // }, [videoId]);
+  //effect hook for setting video details
+  useEffect(() => {
+    const fetchDetailsData = async () => {
+      const result = await getVideoDetails(videoId);
+      console.log("videoDetails results:", result);
+      setVideoDetails(result);
+    };
+    fetchDetailsData();
+  }, [videoId]);
 
   const clickHandler = (event, id) => {
     event.preventDefault();
