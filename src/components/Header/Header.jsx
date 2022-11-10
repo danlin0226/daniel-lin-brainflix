@@ -4,13 +4,15 @@ import uploadIcon from "../../assets/images/icons/upload.svg";
 import searchIcon from "../../assets/images/icons/search.svg";
 import "./Header.scss";
 
+import { Link } from "react-router-dom";
+
 function Header() {
   return (
     <>
       <header className="header">
-        <a className="header__logo-link" href="#home">
+        <Link className="header__logo-link" to="/">
           <img className="header__logo" src={logo} alt="Hi"></img>
-        </a>
+        </Link>
         <div className="header__container">
           <div className="header__search-cont">
             <img
@@ -40,9 +42,9 @@ function Header() {
               alt="icon with arrow facing up"
               src={uploadIcon}
             ></img>
-            <button className="header__upload-button" href="#">
-              UPLOAD
-            </button>
+            <Link to="/upload" className="header__upload-button-link">
+              <button className="header__upload-button">UPLOAD</button>
+            </Link>
           </div>
         </div>
       </header>

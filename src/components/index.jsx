@@ -1,0 +1,10 @@
+// export { default as Header } from "./header";
+// export { default as CommentForm } from "./CommentForm";
+// export { default as CommentList } from "./CommentList";
+export { default as MainVideo } from "./main-video/MainVideo";
+export { default as MainVideoTitle } from "./main-video-title/MainVideoTitle";
+export { default as MainVideoStats } from "./main-video-stats/MainVideoStats";
+export { default as MainVideoDescription } from "./main-video-description/MainVideoDescription";
+export { default as CommentForm } from "./comment-form/CommentForm";
+export { default as CommentList } from "./comment-list/CommentList";
+export { default as NextVideoList } from "./next-video-list/NextVideoList";
