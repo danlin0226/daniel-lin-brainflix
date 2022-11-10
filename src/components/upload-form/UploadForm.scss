@@ -11,12 +11,16 @@
 
   &__header {
     @include mixins.mobile-page-header; //this text is too bold vs mockup but no other font weights available
-    font-size: 1.5rem;
     margin-top: 8px;
     margin-bottom: 1rem;
   }
 
   &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  &__form-cont {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -42,8 +46,7 @@
     border-radius: 0.25rem;
     @include mixins.mobile-body-copy;
     background-color: colors.$secondary-light;
-    font-family: inherit; //form controls seem to not inherit font size and family
-    outline: 0.0625rem solid colors.$primary-med;
+    outline: 0.0625rem solid colors.$secondary-med;
     border: 0rem;
     padding: 0.75rem;
     &:focus {
@@ -106,5 +109,84 @@
     background-color: transparent;
     @include mixins.mobile-label-buttons;
     cursor: pointer;
+  }
+}
+
+@include breakpoints.medium {
+  .upload-form {
+    padding: 0px 36px 36px 36px;
+    border-top: 0.0625rem solid colors.$secondary-med;
+
+    &__header {
+      @include mixins.desk-tab-page-header; //this text is too bold vs mockup but no other font weights available
+      margin-top: 36px;
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+      border-bottom: 0.0625rem solid colors.$secondary-med;
+    }
+
+    &__thumbnail {
+      width: 50%;
+    }
+
+    &__label {
+      @include mixins.desk-tab-label-buttons;
+    }
+
+    &__text {
+      @include mixins.desk-tab-body-copy;
+    }
+
+    &__buttons-cont {
+      flex-direction: row-reverse;
+      gap: 16px;
+      padding-top: 16px;
+      border-top: 0.0625rem solid colors.$secondary-med;
+    }
+
+    &__button-cont {
+      width: 150px;
+      gap: 16px;
+    }
+
+    &__submit {
+      @include mixins.desk-tab-label-buttons;
+    }
+
+    &__cancel {
+      width: 150px;
+      @include mixins.desk-tab-label-buttons;
+    }
+  }
+}
+
+@include breakpoints.large {
+  .upload-form {
+    padding: 0px 144px 36px 144px;
+    border-top: 0.0625rem solid colors.$secondary-med;
+
+    &__form {
+      gap: 24px;
+    }
+
+    &__img-fields-cont {
+      display: flex;
+      flex-direction: row;
+      gap: 24px;
+    }
+    &__form-cont {
+      width: 100%;
+    }
+
+    &__label-desc-cont {
+      flex: 1;
+    }
+    &__thumbnail {
+      width: 380px;
+    }
+
+    &__buttons-cont {
+      padding-top: 24px;
+    }
   }
 }

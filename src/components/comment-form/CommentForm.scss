@@ -53,7 +53,7 @@
     @include mixins.mobile-body-copy;
     background-color: colors.$secondary-light;
     font-family: inherit; //form controls seem to not inherit font size and family
-    outline: 0.0625rem solid colors.$primary-med;
+    outline: 0.0625rem solid colors.$secondary-med;
     border: 0rem;
     padding: 0.75rem;
     &:focus {
