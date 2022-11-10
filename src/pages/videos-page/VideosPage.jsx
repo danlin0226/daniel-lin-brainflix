@@ -1,8 +1,12 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 //importing utils
-import { getVideos, getVideoDetails, test } from "../../utils/utils.jsx";
+import {
+  getVideos,
+  getVideoDetails,
+  getDefaultVideoID,
+} from "../../utils/utils.jsx";
 import { dynamicTime } from "../../utils/dateUtils.jsx";
 
 //importing components
@@ -13,16 +17,32 @@ import MainVideoDescription from "../../components/main-video-description/MainVi
 import CommentForm from "../../components/comment-form/CommentForm";
 import CommentList from "../../components/comment-list/CommentList";
 import NextVideoList from "../../components/next-video-list/NextVideoList";
-import { useEffect } from "react";
 
 export default function VideosPage() {
-  const defaultVideoId = "c05b9a93-8682-4ab6-aff2-92ebb4bbfc14";
+  const defaultVideoId = "84e96018-4022-434e-80bf-000ce4cd12b8";
 
   //define states
   const [videoId, setVideoId] = useState(defaultVideoId);
-
   const [videos, setVideos] = useState([]);
   const [videoDetails, setVideoDetails] = useState({});
+
+  //params hook to obtain the videoID from video link
+  const params = useParams();
+  console.log("params", params.videoID);
+
+  useEffect(() => {
+    params.videoID && setVideoId(params.videoID);
+  }, [params.videoID]);
+
+  // //effect hook to set initial video on load
+  // useEffect(() => {
+  //   const fetchDefaultVideo = async () => {
+  //     const request = await getDefaultVideoID();
+  //     console.log("initial Id", request);
+  //     setVideoId(request);
+  //   };
+  //   fetchDefaultVideo();
+  // }, []);
 
   //effect hook for setting videos
   useEffect(() => {
@@ -38,16 +58,12 @@ export default function VideosPage() {
   useEffect(() => {
     const fetchDetailsData = async () => {
       const result = await getVideoDetails(videoId);
-      console.log("videoDetails results:", result);
+      console.log("videoDetails", videoId);
       setVideoDetails(result);
     };
     fetchDetailsData();
   }, [videoId]);
 
-  const clickHandler = (event, id) => {
-    event.preventDefault();
-    setVideoId(id);
-  };
   return (
     Object.keys(videoDetails).length > 0 && (
       <main>
@@ -78,7 +94,7 @@ export default function VideosPage() {
             </section>
           </div>
           <section className="next-video-section">
-            <NextVideoList videos={videos} clickHandler={clickHandler} />
+            <NextVideoList videos={videos} />
           </section>
         </section>
       </main>

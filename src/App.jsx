@@ -1,6 +1,6 @@
 import "./App.scss";
-import React, { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 //importing components
 import Header from "./components/header/Header";
@@ -18,6 +18,7 @@ function App() {
           <Route path=":videoID" element={<VideosPage />} />
         </Route>
         <Route path="/upload" element={<UploadPage />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
   );
