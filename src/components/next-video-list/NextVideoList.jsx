@@ -2,9 +2,6 @@ import { Link } from "react-router-dom";
 import "./NextVideoList.scss";
 
 export default function NextVideoList({ videos }) {
-  // const params = useParams();
-  // console.log(params);
-
   return (
     <aside className="next-vid-list">
       <h2 className="next-vid-list__header">NEXT VIDEOS</h2>

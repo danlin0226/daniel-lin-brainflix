@@ -9,14 +9,9 @@ const requests = {
     `${BASE_URL}/videos/${videoID}/?api_key=${process.env.REACT_APP_API_KEY}`,
 };
 
-export const getDefaultVideoID = async () => {
+export const getVideos = async () => {
   const { data } = await axios.get(requests.fetchVideos);
-  return data[0].id;
-};
-
-export const getVideos = async (videoId) => {
-  const { data } = await axios.get(requests.fetchVideos);
-  return data.filter((video) => videoId !== video.id);
+  return data;
 };
 
 export const getVideoDetails = async (videoId) => {
