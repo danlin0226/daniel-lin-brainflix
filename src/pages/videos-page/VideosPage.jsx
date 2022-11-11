@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { getVideos, getVideoDetails } from "../../utils/axiosUtils.jsx";
 import { dynamicTime } from "../../utils/dateUtils.jsx";
 
-//importing components
+//importing components from index component index file for readability
 import {
   MainVideo,
   MainVideoTitle,
@@ -23,7 +23,10 @@ export default function VideosPage() {
 
   const { videoID } = useParams();
 
+  //defaultVideoID will be false BEFORE initial render or the the first video ID AFTER render
   const defaultVideoID = videos.length > 0 ? videos[0].id : false;
+
+  //If params.id is truthy, displayedVideoID becomes that value, otherwise it's the defaultVideoID
   const displayedVideoID = videoID || defaultVideoID;
 
   const displayedVideos = videos.filter(
@@ -45,10 +48,12 @@ export default function VideosPage() {
       const request = await getVideoDetails(displayedVideoID);
       setVideoDetails(request);
     };
-    displayedVideoID && fetchDetailsData();
+    displayedVideoID && fetchDetailsData(); //prevents the details from fetching if the displayedVideoID has not been assigned a value
   }, [displayedVideoID]);
 
   return (
+    //statement checks to see if videoDetails data has been fetched. If yes, then render jsx, otherwise do nothing.
+    //optionally, a loading screen can be added by using a "if..return"
     Object.keys(videoDetails).length > 0 && (
       <main>
         <section className="video-section">

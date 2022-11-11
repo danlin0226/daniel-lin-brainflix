@@ -1,9 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import "./UploadForm.scss";
 import videoThumbnail from "../../assets/images/Upload-video-preview.jpg";
 import publishIcon from "../../assets/images/icons/publish.svg";
 
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import Toastify from "toastify-js";
+import { useEffect } from "react";
+
 export default function UploadForm() {
+  const [submitted, setSubmitted] = useState(false);
+  const [cancel, setCancel] = useState(false);
+
+  const navigate = useNavigate();
+
+  //click handlers for submit and cancel
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
+  const onCancel = (e) => {
+    e.preventDefault();
+    setCancel(true);
+  };
+
+  //on submit show toast and navigate home
+  useEffect(() => {
+    if (!submitted) return;
+
+    Toastify({
+      text: "Successfully uploaded!",
+      duration: 2000,
+      className: "toast__success",
+    }).showToast();
+
+    setTimeout(() => {
+      navigate("/home");
+    }, 2000);
+  }, [submitted]);
+
+  //on cancel, go back one page
+  useEffect(() => {
+    cancel && navigate(-1);
+  }, [cancel]);
+
   return (
     <div className="upload-form">
       <h1 className="upload-form__header">Upload Video</h1>
@@ -55,11 +95,19 @@ export default function UploadForm() {
               alt="icon with arrow facing up"
               src={publishIcon}
             ></img>
-            <button className="upload-form__submit" href="#">
+            <button
+              className={`upload-form__submit ${
+                submitted && "upload-form__submit--disabled"
+              }`}
+              disabled={submitted}
+              onClick={onSubmit}
+            >
               PUBLISH
             </button>
           </div>
-          <button className="upload-form__cancel">Cancel</button>
+          <button className="upload-form__cancel" onClick={onCancel}>
+            Cancel
+          </button>
         </div>
       </form>
     </div>

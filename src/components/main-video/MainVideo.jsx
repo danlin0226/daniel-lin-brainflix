@@ -5,7 +5,7 @@ function MainVideo({ videoDetails }) {
     <div className="main-video-cont">
       <video
         className="main-video"
-        src=""
+        // src=""
         poster={videoDetails.image}
         controls
       ></video>

@@ -1,6 +1,5 @@
-// export { default as Header } from "./header";
-// export { default as CommentForm } from "./CommentForm";
-// export { default as CommentList } from "./CommentList";
+//this file organizes the components in one file so that they can be imported from a single source
+
 export { default as MainVideo } from "./main-video/MainVideo";
 export { default as MainVideoTitle } from "./main-video-title/MainVideoTitle";
 export { default as MainVideoStats } from "./main-video-stats/MainVideoStats";
