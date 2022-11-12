@@ -12,7 +12,7 @@ export default function NextVideoList({ videos }) {
               <img
                 className="next-vid-list__video-poster"
                 src={video.image}
-                alt={video.title} //no alt tags provided for images so use title?
+                alt={video.title} //no alt tags provided for images so use title
                 onError={(i) => (i.target.style.display = "none")}
               />
             </div>

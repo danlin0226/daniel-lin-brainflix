@@ -88,6 +88,14 @@
     &:hover {
       background-color: colors.$secondary-color;
     }
+
+    &--disabled {
+      opacity: 50%;
+      cursor: not-allowed;
+      &:hover {
+        background-color: colors.$primary-color;
+      }
+    }
   }
 
   &__icon {
@@ -188,5 +196,45 @@
     &__buttons-cont {
       padding-top: 24px;
     }
+  }
+}
+
+.toast__success {
+  max-width: 250px; /* Set a default minimum width */
+  height: 40px;
+  @include mixins.mobile-label-buttons;
+  background-color: #0095ff;
+  color: #fff;
+  border-radius: 4px;
+  padding: 10px;
+
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+
+  animation: fadein 0.5s, fadeout 0.5s 2s;
+}
+
+@keyframes fadein {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 16px;
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  from {
+    top: 16px;
+    opacity: 1;
+  }
+  to {
+    top: 0;
+    opacity: 0;
   }
 }

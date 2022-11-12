@@ -1,8 +1,31 @@
+import { useState, useEffect } from "react";
 import "./CommentForm.scss";
+
 import commentIcon from "../../assets/images/icons/add_comment.svg";
 import avatar from "../../assets/images/Mohan-muruge.jpg";
 
-export default function CommentForm() {
+import { postComment } from "../../utils/axiosUtils.jsx";
+
+export default function CommentForm({ displayedVideoID, setVideoDetails }) {
+  const [commentObj, setCommentObj] = useState({
+    name: "John Smith",
+    comment: "",
+  });
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setCommentObj({ ...commentObj, comment: e.target.comment.value });
+    e.target.comment.value = "";
+  };
+
+  useEffect(() => {
+    const postData = async () => {
+      const request = await postComment(displayedVideoID, commentObj);
+      setVideoDetails(request);
+    };
+    commentObj.comment && postData();
+  }, [commentObj, setVideoDetails, displayedVideoID]); //
+
   return (
     <>
       <div className="form-section">
@@ -16,7 +39,7 @@ export default function CommentForm() {
             />
           </div>
         </div>
-        <form className="form" id="form">
+        <form className="form" id="form" onSubmit={onSubmit}>
           <div className="form__label-input">
             <label className="form__label" htmlFor="comment">
               JOIN THE CONVERSATION

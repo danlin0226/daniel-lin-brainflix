@@ -26,6 +26,7 @@ function Header() {
               id="search"
               name="search"
               placeholder="Search"
+              autoComplete="off"
             ></input>
           </div>
           <div className="header__avatar-cont">
