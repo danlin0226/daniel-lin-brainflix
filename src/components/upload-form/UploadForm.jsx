@@ -3,7 +3,7 @@ import "./UploadForm.scss";
 import videoThumbnail from "../../assets/images/Upload-video-preview.jpg";
 import publishIcon from "../../assets/images/icons/publish.svg";
 
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Toastify from "toastify-js";
 import { useEffect } from "react";
 
@@ -37,12 +37,12 @@ export default function UploadForm() {
     setTimeout(() => {
       navigate("/home");
     }, 2000);
-  }, [submitted]);
+  }, [submitted, navigate]);
 
   //on cancel, go back one page
   useEffect(() => {
     cancel && navigate(-1);
-  }, [cancel]);
+  }, [cancel, navigate]);
 
   return (
     <div className="upload-form">

@@ -53,7 +53,7 @@ export default function VideosPage() {
 
   return (
     //statement checks to see if videoDetails data has been fetched. If yes, then render jsx, otherwise do nothing.
-    //optionally, a loading screen can be added by using a "if..return"
+    //optionally, a loading screen can be added by using a "if..return (loading)"
     Object.keys(videoDetails).length > 0 && (
       <main>
         <section className="video-section">
@@ -75,7 +75,11 @@ export default function VideosPage() {
                   ? `${videoDetails.comments.length} Comments`
                   : "Be the first to comment!"}
               </div>
-              <CommentForm />
+              <CommentForm
+                displayedVideoID={displayedVideoID}
+                setVideoDetails={setVideoDetails}
+                videoDetails={videoDetails}
+              />
               <CommentList
                 videoDetails={videoDetails}
                 dynamicTime={dynamicTime}
