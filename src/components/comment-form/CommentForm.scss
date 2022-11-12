@@ -139,7 +139,7 @@
       height: 2.5rem;
       @include mixins.desk-tab-body-copy;
       font-family: inherit; //form controls seem to not inherit font size and family
-      padding: 0.5rem 0.75rem;
+      padding: 0.57rem 0.75rem;
     }
 
     &__button-cont {

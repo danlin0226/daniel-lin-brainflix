@@ -15,6 +15,7 @@ export default function CommentForm({ displayedVideoID, setVideoDetails }) {
   const onSubmit = (e) => {
     e.preventDefault();
     setCommentObj({ ...commentObj, comment: e.target.comment.value });
+    e.target.comment.value = "";
   };
 
   useEffect(() => {
