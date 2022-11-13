@@ -1,7 +1,34 @@
 import React from "react";
+import { useState, useEffect } from "react";
+import deleteIcon from "../../assets/images/icons/delete.svg";
+import { deleteComment } from "../../utils/axiosUtils.jsx";
+
 import "./CommentList.scss";
 
-export default function CommentList({ videoDetails, dynamicTime }) {
+export default function CommentList({
+  videoDetails,
+  dynamicTime,
+  setVideoDetails,
+}) {
+  const [commentId, setCommentId] = useState("");
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    setCommentId(e.target.id);
+  };
+
+  useEffect(() => {
+    const deleteData = async () => {
+      try {
+        const data = await deleteComment(videoDetails.id, commentId);
+        setVideoDetails(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    commentId && deleteData();
+  }, [videoDetails.id, commentId, setVideoDetails]);
+
   return (
     <section>
       {videoDetails.comments
@@ -25,20 +52,17 @@ export default function CommentList({ videoDetails, dynamicTime }) {
               </div>
               <p className="comment-card__comment">{comment.comment}</p>
 
-              {/* HTML FOR DELETE AND LIKE COMMENT FUNCTIONALITY POTENTIALLY TO BE IMPLEMENTED */}
-              {/* <div className="comment-card__icon-cont">
-            <img
-              className="comment-card__icon"
-              src="./assets/icons/icon-delete.svg"
-              alt="trashbin icon"
-            />
-            <img
-              className="comment-card__icon"
-              src="./assets/icons/icon-like.svg"
-              alt="thumbs up icon"
-            />
-            <span className="comment-card__like-counter">3</span>
-          </div> */}
+              <div className="comment-card__icon-cont">
+                <img
+                  onClick={handleClick}
+                  className="comment-card__icon"
+                  id={comment.id}
+                  src={deleteIcon}
+                  alt="trash bin icon"
+                />
+                {/* HTML FOR DELETE AND LIKE COMMENT FUNCTIONALITY POTENTIALLY TO BE IMPLEMENTED */}
+                {/* <span className="comment-card__like-counter">3</span> */}
+              </div>
             </div>
           </div>
         ))}
