@@ -11,8 +11,22 @@ body {
   color: $primary-dark;
 }
 
+input,
+textarea,
+button {
+  font-family: "Avenir Next";
+}
+
 *,
 *::before,
 *::after {
   box-sizing: inherit;
+}
+
+a:visited,
+a:hover,
+a:focus,
+a {
+  text-decoration: none;
+  color: inherit;
 }

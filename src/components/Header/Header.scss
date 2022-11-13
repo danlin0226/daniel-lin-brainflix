@@ -5,9 +5,13 @@
 .header {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 1rem;
   gap: 1rem;
+  width: 100vw;
+
   &__container {
+    width: 100%;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -18,15 +22,14 @@
     flex: 1;
   }
 
-  &__logo {
-    max-width: 7.5rem;
-    max-height: 1.5625rem;
-    align-self: center;
-  }
-
   &__logo-link {
     display: flex;
     justify-content: center;
+  }
+  &__logo {
+    width: 7.5rem;
+    max-height: 1.5625rem;
+    align-self: center;
   }
 
   &__search-bar {
@@ -36,7 +39,7 @@
     background-color: colors.$secondary-light;
     @include mixins.mobile-body-copy;
     font-family: inherit; //form controls seem to not inherit font size and family
-    outline: 0.0625rem solid colors.$primary-med;
+    outline: 0.0625rem solid colors.$secondary-med;
     border: 0rem;
     padding-left: 2.25rem;
     padding-right: 0.75rem;
@@ -73,12 +76,17 @@
     margin-top: 1rem;
   }
 
+  &__upload-button-link {
+    text-decoration: none;
+  }
+
   &__upload-button {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: colors.$primary-color;
     @include mixins.mobile-label-buttons;
+    font-family: inherit;
     text-decoration: none;
     color: colors.$primary-light;
     border: none;
@@ -90,6 +98,7 @@
 
     &:hover {
       background-color: colors.$secondary-color;
+      text-decoration: none;
     }
   }
 
@@ -108,6 +117,7 @@
     padding: 1rem 2.25rem;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 
     &__container {
       flex-wrap: nowrap;
