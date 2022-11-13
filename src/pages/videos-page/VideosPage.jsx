@@ -36,8 +36,12 @@ export default function VideosPage() {
   // effect hook for initial videos api call
   useEffect(() => {
     const fetchVideosData = async () => {
-      const request = await getVideos();
-      setVideos(request); //sets videos as an array of all videos from api
+      try {
+        const request = await getVideos();
+        setVideos(request); //sets videos as an array of all videos from api
+      } catch (error) {
+        console.error(error);
+      }
     };
     fetchVideosData();
   }, []);
@@ -45,8 +49,12 @@ export default function VideosPage() {
   //effect hook for video details api call
   useEffect(() => {
     const fetchDetailsData = async () => {
-      const request = await getVideoDetails(displayedVideoID);
-      setVideoDetails(request);
+      try {
+        const request = await getVideoDetails(displayedVideoID);
+        setVideoDetails(request);
+      } catch (error) {
+        console.error(error);
+      }
     };
     displayedVideoID && fetchDetailsData(); //prevents the details from fetching if the displayedVideoID has not been assigned a value
   }, [displayedVideoID]);
@@ -83,6 +91,7 @@ export default function VideosPage() {
               <CommentList
                 videoDetails={videoDetails}
                 dynamicTime={dynamicTime}
+                setVideoDetails={setVideoDetails}
               />
             </section>
           </div>
