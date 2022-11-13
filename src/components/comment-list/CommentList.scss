@@ -45,24 +45,24 @@
   }
 
   // HTML FOR DELETE AND LIKE ICONS - POTENTIALLY IMPLEMENTED LATER
-  //   &__icon-cont {
-  //     display: flex;
-  //     gap: 1rem;
-  //     margin-bottom: 1rem;
-  //   }
-  //   &__icon {
-  //     height: 1rem;
-  //     cursor: pointer;
-  //     opacity: 0.5;
-  //     transition: 0.05s linear;
-  //     box-sizing: content-box;
-  //     &:hover {
-  //       opacity: 0.75;
-  //     }
-  //     &:active {
-  //       opacity: 1;
-  //     }
-  //   }
+  &__icon-cont {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  &__icon {
+    height: 1rem;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.05s linear;
+    box-sizing: content-box;
+    &:hover {
+      opacity: 0.75;
+    }
+    &:active {
+      opacity: 1;
+    }
+  }
 
   //   &__like-counter {
   //     font-size: .75rem;
@@ -95,14 +95,14 @@
     }
     &__comment {
       @include mixins.desk-tab-body-copy;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.5rem;
     }
   }
 }
 @include breakpoints.large {
   .comment-card {
     margin: 0rem 0rem 0rem 9rem;
-    padding: 1.5rem 0;
+    padding-top: 1.5rem;
     padding-right: 1.5rem;
     border-bottom: none;
     border-top: 0.0625rem solid colors.$secondary-med;
@@ -112,7 +112,8 @@
     }
     &__comment {
       @include mixins.desk-tab-body-copy;
-      margin-bottom: 0rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
     }
   }
 }
