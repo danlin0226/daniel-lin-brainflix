@@ -1,7 +1,6 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import deleteIcon from "../../assets/images/icons/delete.svg";
-import { deleteComment } from "../../utils/axiosUtils.jsx";
+import { deleteComment, getVideoDetails } from "../../utils/axiosUtils.jsx";
 
 import "./CommentList.scss";
 
@@ -10,24 +9,20 @@ export default function CommentList({
   dynamicTime,
   setVideoDetails,
 }) {
-  const [commentId, setCommentId] = useState("");
-
   const handleClick = (e) => {
     e.preventDefault();
-    setCommentId(e.target.id);
-  };
 
-  useEffect(() => {
     const deleteData = async () => {
       try {
-        const data = await deleteComment(videoDetails.id, commentId);
-        setVideoDetails(data);
+        await deleteComment(videoDetails.id, e.target.id);
+        const data = await getVideoDetails(videoDetails.id);
+        setVideoDetails(data); // this triggers a rerender in the parent component
       } catch (error) {
         console.error(error);
       }
     };
-    commentId && deleteData();
-  }, [videoDetails.id, commentId, setVideoDetails]);
+    deleteData();
+  };
 
   return (
     <section>
