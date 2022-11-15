@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./CommentForm.scss";
 
 import commentIcon from "../../assets/images/icons/add_comment.svg";
 import avatar from "../../assets/images/Mohan-muruge.jpg";
 
-import { postComment } from "../../utils/axiosUtils.jsx";
+import { postComment, getVideoDetails } from "../../utils/axiosUtils.jsx";
 
 export default function CommentForm({ displayedVideoID, setVideoDetails }) {
   const [commentObj, setCommentObj] = useState({
@@ -17,8 +17,10 @@ export default function CommentForm({ displayedVideoID, setVideoDetails }) {
   //this functions removes error items in state once a user starts typing. Makes the form more user friendly.
   //on change, this function removes any items in the error state
   const inputChangeHandler = (e) => {
-    console.log(e.target.name);
+    setCommentObj({ ...commentObj, comment: e.target.value });
+
     const fieldName = e.target.name;
+
     if (error.includes(fieldName)) {
       setError(error.filter((e) => e !== fieldName));
     }
@@ -32,27 +34,19 @@ export default function CommentForm({ displayedVideoID, setVideoDetails }) {
       setError([...error, e.target.comment.name]);
       return;
     }
-    // if no errors, update comment Obj to trigger useEffect to post to API
-    setCommentObj({ ...commentObj, comment: e.target.comment.value });
-    e.target.comment.value = "";
-  };
 
-  //post comment and set states to default
-  useEffect(() => {
     const postData = async () => {
       try {
-        const request = await postComment(displayedVideoID, commentObj);
-        setVideoDetails(request);
-        setCommentObj({
-          name: "John Smith",
-          comment: "",
-        });
+        await postComment(displayedVideoID, commentObj);
+        const data = await getVideoDetails(displayedVideoID);
+        setVideoDetails(data);
       } catch (error) {
         console.error(error);
       }
     };
-    commentObj.comment && postData();
-  }, [commentObj, setVideoDetails, displayedVideoID]); //
+    postData();
+    e.target.comment.value = "";
+  };
 
   return (
     <>
