@@ -92,6 +92,7 @@ export default function VideosPage() {
                 videoDetails={videoDetails}
                 dynamicTime={dynamicTime}
                 setVideoDetails={setVideoDetails}
+                displayedVideoID={displayedVideoID}
               />
             </section>
           </div>
