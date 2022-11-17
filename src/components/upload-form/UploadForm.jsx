@@ -5,28 +5,17 @@ import publishIcon from "../../assets/images/icons/publish.svg";
 
 import { useNavigate } from "react-router-dom";
 import Toastify from "toastify-js";
-import { useEffect } from "react";
 
 export default function UploadForm() {
   const [submitted, setSubmitted] = useState(false);
-  const [cancel, setCancel] = useState(false);
 
   const navigate = useNavigate();
 
   //click handlers for submit and cancel
   const onSubmit = (e) => {
     e.preventDefault();
+
     setSubmitted(true);
-  };
-
-  const onCancel = (e) => {
-    e.preventDefault();
-    setCancel(true);
-  };
-
-  //on submit show toast and navigate home
-  useEffect(() => {
-    if (!submitted) return;
 
     Toastify({
       text: "Successfully uploaded!",
@@ -37,12 +26,12 @@ export default function UploadForm() {
     setTimeout(() => {
       navigate("/home");
     }, 2000);
-  }, [submitted, navigate]);
+  };
 
-  //on cancel, go back one page
-  useEffect(() => {
-    cancel && navigate(-1);
-  }, [cancel, navigate]);
+  const onCancel = (e) => {
+    e.preventDefault();
+    navigate(-1);
+  };
 
   return (
     <div className="upload-form">
