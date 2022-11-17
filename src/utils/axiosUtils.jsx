@@ -34,8 +34,6 @@ export const getVideoDetails = async (videoId) => {
 export const postComment = async (videoId, commentObj) => {
   try {
     await axios.post(requests.postComment(videoId), commentObj);
-    // const { data } = await axios.get(requests.fetchVideoDetails(videoId));
-    // return data;
   } catch (error) {
     console.error(error);
   }
