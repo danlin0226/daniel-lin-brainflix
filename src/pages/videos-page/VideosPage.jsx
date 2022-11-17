@@ -25,6 +25,7 @@ export default function VideosPage() {
 
   //defaultVideoID will be false BEFORE initial render or the the first video ID AFTER render
   const defaultVideoID = videos.length > 0 ? videos[0].id : false;
+  console.log(defaultVideoID);
 
   //If params.id is truthy, displayedVideoID becomes that value, otherwise it's the defaultVideoID
   const displayedVideoID = videoID || defaultVideoID;
@@ -39,6 +40,9 @@ export default function VideosPage() {
       try {
         const request = await getVideos();
         setVideos(request); //sets videos as an array of all videos from api
+        // console.log("videos", request);
+        // console.log("first video", request[0]);
+        // console.log("first video id", request[0].id);
       } catch (error) {
         console.error(error);
       }

@@ -1,16 +1,14 @@
 import axios from "axios";
 
-const BASE_URL = "https://project-2-api.herokuapp.com";
+const BACK_END_URL = process.env.REACT_APP_BACK_END_URL;
 
 //created an object to store each endpoint URI
 const requests = {
-  fetchVideos: `${BASE_URL}/videos/?api_key=${process.env.REACT_APP_API_KEY}`,
-  fetchVideoDetails: (videoID) =>
-    `${BASE_URL}/videos/${videoID}/?api_key=${process.env.REACT_APP_API_KEY}`,
-  postComment: (videoID) =>
-    `${BASE_URL}/videos/${videoID}/comments/?api_key=${process.env.REACT_APP_API_KEY}`,
+  fetchVideos: `${BACK_END_URL}/videos/`,
+  fetchVideoDetails: (videoID) => `${BACK_END_URL}/videos/${videoID}/`,
+  postComment: (videoID) => `${BACK_END_URL}/videos/${videoID}/comments/`,
   deleteComment: (videoID, commentID) =>
-    `${BASE_URL}/videos/${videoID}/comments/${commentID}/?api_key=${process.env.REACT_APP_API_KEY}`,
+    `${BACK_END_URL}/videos/${videoID}/comments/${commentID}/`,
 };
 
 export const getVideos = async () => {
