@@ -69,7 +69,7 @@ export default function UploadForm() {
   };
 
   return (
-    <div className="upload-form">
+    <div className={`upload-form ${submitted && "upload-form--submitted"}`}>
       <h1 className="upload-form__header">Upload Video</h1>
       <form className="upload-form__form" onSubmit={onSubmit}>
         <div className="upload-form__img-fields-cont">

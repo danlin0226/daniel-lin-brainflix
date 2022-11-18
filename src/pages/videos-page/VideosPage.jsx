@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from "react";
+import "./VideosPage.scss";
+
+import spinner from "../../assets/images/spinner.webp";
+
 import { useParams } from "react-router-dom";
 
 //importing utils
@@ -66,7 +70,7 @@ export default function VideosPage() {
   return (
     //statement checks to see if videoDetails data has been fetched. If yes, then render jsx, otherwise do nothing.
     //optionally, a loading screen can be added by using a "if..return (loading)"
-    Object.keys(videoDetails).length > 0 && (
+    Object.keys(videoDetails).length > 0 ? (
       <main>
         <section className="video-section">
           <MainVideo videoDetails={videoDetails} />
@@ -105,6 +109,8 @@ export default function VideosPage() {
           </section>
         </section>
       </main>
+    ) : (
+      <img className="loading" src={spinner} alt="spinner animation" />
     )
   );
 }
