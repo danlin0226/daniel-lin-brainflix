@@ -5,6 +5,7 @@ const BACK_END_URL = process.env.REACT_APP_BACK_END_URL;
 //created an object to store each endpoint URI
 const requests = {
   fetchVideos: `${BACK_END_URL}/videos/`,
+  postVideo: `${BACK_END_URL}/videos/`,
   fetchVideoDetails: (videoID) => `${BACK_END_URL}/videos/${videoID}/`,
   postComment: (videoID) => `${BACK_END_URL}/videos/${videoID}/comments/`,
   deleteComment: (videoID, commentID) =>
@@ -24,6 +25,15 @@ export const getVideoDetails = async (videoId) => {
   try {
     const { data } = await axios.get(requests.fetchVideoDetails(videoId));
     return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const postVideo = async (newVideo) => {
+  try {
+    await axios.post(requests.postVideo, newVideo);
+    // return data;
   } catch (error) {
     console.error(error);
   }

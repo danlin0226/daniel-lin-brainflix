@@ -11,8 +11,8 @@ export default function NextVideoList({ videos }) {
             <div className="next-vid-list__video-placeholder">
               <img
                 className="next-vid-list__video-poster"
-                src={video.image}
-                alt={video.title} //no alt tags provided for images so use title
+                src={process.env.REACT_APP_BACK_END_URL + video.image}
+                alt={video.title}
                 onError={(i) => (i.target.style.display = "none")}
               />
             </div>
