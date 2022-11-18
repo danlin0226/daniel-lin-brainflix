@@ -10,7 +10,6 @@ import { postVideo } from "../../utils/axiosUtils";
 export default function UploadForm() {
   const [submitted, setSubmitted] = useState(false);
   const [newVideo, setNewVideo] = useState({
-    //default name is John smith because mock provides no name input
     title: "",
     description: "",
     image: "/images/Upload-video-preview.jpg",
@@ -19,6 +18,7 @@ export default function UploadForm() {
 
   const navigate = useNavigate();
 
+  //validation
   const inputChangeHandler = (e) => {
     const { name, value } = e.target;
     console.log(name, value);
@@ -33,11 +33,11 @@ export default function UploadForm() {
   const onSubmit = (e) => {
     e.preventDefault();
 
+    //validation
     if (newVideo.title === "") {
       setError([...error, "title"]);
       return;
     }
-
     if (newVideo.description === "") {
       setError([...error, "description"]);
       return;
@@ -52,6 +52,7 @@ export default function UploadForm() {
           duration: 2000,
           className: "toast__success",
         }).showToast();
+
         setTimeout(() => {
           navigate("/home");
         }, 2000);
