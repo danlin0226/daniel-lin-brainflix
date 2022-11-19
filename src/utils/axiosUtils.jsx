@@ -8,6 +8,7 @@ const requests = {
   postVideo: `${BACK_END_URL}/videos/`,
   fetchVideoDetails: (videoID) => `${BACK_END_URL}/videos/${videoID}/`,
   postComment: (videoID) => `${BACK_END_URL}/videos/${videoID}/comments/`,
+  likeVideo: (videoID) => `${BACK_END_URL}/videos/${videoID}/likes/`,
   deleteComment: (videoID, commentID) =>
     `${BACK_END_URL}/videos/${videoID}/comments/${commentID}/`,
 };
@@ -33,7 +34,6 @@ export const getVideoDetails = async (videoId) => {
 export const postVideo = async (newVideo) => {
   try {
     await axios.post(requests.postVideo, newVideo);
-    // return data;
   } catch (error) {
     console.error(error);
   }
@@ -50,6 +50,14 @@ export const postComment = async (videoId, commentObj) => {
 export const deleteComment = async (videoId, commentID) => {
   try {
     await axios.delete(requests.deleteComment(videoId, commentID));
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const likeVideo = async (videoId) => {
+  try {
+    await axios.patch(requests.likeVideo(videoId));
   } catch (error) {
     console.error(error);
   }
