@@ -3,21 +3,21 @@ import viewsIcon from "../../assets/images/icons/views.svg";
 import likesIcon from "../../assets/images/icons/likes.svg";
 import "./MainVideoStats.scss";
 import { likeVideo } from "../../utils/axiosUtils";
+import { useEffect } from "react";
 
 export default function MainVideoStats({ videoDetails, dynamicTime }) {
-  const [likeCount, setLikeCount] = useState(videoDetails.likes);
+  const [likeCount, setLikeCount] = useState(0);
+  const likes = videoDetails.likes;
 
   const likeHandleClick = (e) => {
     e.preventDefault();
-    // console.log("i was clicked");
-    // console.log(videoDetails.id);
-    const patchData = async (video) => {
-      console.log(video.id);
-      await likeVideo(video.id);
-      setLikeCount(likeCount + 1);
-    };
-    patchData(videoDetails);
+    likeVideo(videoDetails.id);
+    setLikeCount((prevLikeCount) => prevLikeCount + 1);
   };
+
+  useEffect(() => {
+    setLikeCount(likes);
+  }, [likes]);
 
   return (
     <div className="video-stats">
@@ -47,7 +47,9 @@ export default function MainVideoStats({ videoDetails, dynamicTime }) {
               onClick={likeHandleClick}
             ></img>
           </div>
-          <span className="video-stats__info">{likeCount}</span>
+          <span className="video-stats__info">
+            {likeCount.toLocaleString()}
+          </span>
         </div>
       </div>
     </div>

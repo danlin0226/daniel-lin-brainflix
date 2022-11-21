@@ -3,11 +3,14 @@ import "./UploadForm.scss";
 import publishIcon from "../../assets/images/icons/publish.svg";
 
 import { useNavigate } from "react-router-dom";
+
 import Toastify from "toastify-js";
 
 import { postVideo } from "../../utils/axiosUtils";
 
 export default function UploadForm() {
+  const [selectedFile, setSelectedFile] = useState();
+  const [isFilePicked, setIsFilePicked] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [newVideo, setNewVideo] = useState({
     title: "",
@@ -21,7 +24,6 @@ export default function UploadForm() {
   //validation
   const inputChangeHandler = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
     setNewVideo({ ...newVideo, [name]: value });
     const fieldName = e.target.name;
     if (error.includes(fieldName)) {
@@ -42,6 +44,11 @@ export default function UploadForm() {
       setError([...error, "description"]);
       return;
     }
+
+    const changeHandler = (event) => {
+      setSelectedFile(event.target.files[0]);
+      setIsFilePicked(true);
+    };
 
     const postVideoData = async () => {
       try {
@@ -77,6 +84,7 @@ export default function UploadForm() {
             <label className="upload-form__label" htmlFor="">
               VIDEO THUMBNAIL
             </label>
+
             <img
               className="upload-form__thumbnail"
               src={
@@ -135,7 +143,6 @@ export default function UploadForm() {
                 submitted && "upload-form__submit--disabled"
               }`}
               disabled={submitted}
-              // onClick={onSubmit}
             >
               PUBLISH
             </button>
