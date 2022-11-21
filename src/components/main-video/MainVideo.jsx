@@ -5,8 +5,7 @@ function MainVideo({ videoDetails }) {
     <div className="main-video-cont">
       <video
         className="main-video"
-        // src=""
-        poster={videoDetails.image}
+        poster={process.env.REACT_APP_BACK_END_URL + videoDetails.image}
         controls
       ></video>
     </div>
