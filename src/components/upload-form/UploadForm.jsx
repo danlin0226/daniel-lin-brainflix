@@ -9,8 +9,6 @@ import Toastify from "toastify-js";
 import { postVideo } from "../../utils/axiosUtils";
 
 export default function UploadForm() {
-  const [selectedFile, setSelectedFile] = useState();
-  const [isFilePicked, setIsFilePicked] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [newVideo, setNewVideo] = useState({
     title: "",
@@ -44,11 +42,6 @@ export default function UploadForm() {
       setError([...error, "description"]);
       return;
     }
-
-    const changeHandler = (event) => {
-      setSelectedFile(event.target.files[0]);
-      setIsFilePicked(true);
-    };
 
     const postVideoData = async () => {
       try {
