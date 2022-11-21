@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Toastify from "toastify-js";
 
 import { postVideo } from "../../utils/axiosUtils";
+import { useEffect } from "react";
 
 export default function UploadForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -16,6 +17,7 @@ export default function UploadForm() {
     image: "/images/Upload-video-preview.jpg",
   });
   const [error, setError] = useState([]);
+  const [filename, setFilename] = useState("");
 
   const navigate = useNavigate();
 
@@ -63,6 +65,14 @@ export default function UploadForm() {
     postVideoData();
   };
 
+  useEffect(() => {}, [filename]);
+
+  const uploadHandler = async (e) => {
+    // e.preventDefault();
+    console.log(e.target.sampleFile.files[0].name);
+    setTimeout(() => setFilename(e.target.sampleFile.files[0].name), 1000);
+  };
+
   const onCancel = (e) => {
     e.preventDefault();
     navigate(-1);
@@ -71,22 +81,37 @@ export default function UploadForm() {
   return (
     <div className={`upload-form ${submitted && "upload-form--submitted"}`}>
       <h1 className="upload-form__header">Upload Video</h1>
+      <form
+        id="uploadForm"
+        action="http://localhost:8080/upload"
+        method="post"
+        encType="multipart/form-data"
+        onSubmit={uploadHandler}
+      >
+        <div className="upload-form__label-desc-cont">
+          <label className="upload-form__label" htmlFor="">
+            VIDEO THUMBNAIL
+          </label>
+          <input
+            className="upload-form__upload"
+            type="file"
+            name="sampleFile"
+          />
+          <input
+            type="submit"
+            value="Upload!"
+            className="upload-form__upload"
+          />
+          <img
+            className="upload-form__thumbnail"
+            src={process.env.REACT_APP_BACK_END_URL + `/images/${filename}`}
+            alt="top down view of a blue bicycle racing down the road"
+          />
+        </div>
+      </form>
       <form className="upload-form__form" onSubmit={onSubmit}>
         <div className="upload-form__img-fields-cont">
-          <div className="upload-form__label-desc-cont">
-            <label className="upload-form__label" htmlFor="">
-              VIDEO THUMBNAIL
-            </label>
-
-            <img
-              className="upload-form__thumbnail"
-              src={
-                process.env.REACT_APP_BACK_END_URL +
-                "/images/Upload-video-preview.jpg"
-              }
-              alt="top down view of a blue bicycle racing down the road"
-            />
-          </div>
+          <div className="upload-form__label-desc-cont"></div>
           <div className="upload-form__form-cont">
             <div className="upload-form__label-desc-cont">
               <label htmlFor="title" className="upload-form__label">
@@ -104,6 +129,7 @@ export default function UploadForm() {
                 onChange={inputChangeHandler}
               />
             </div>
+
             <div className="upload-form__label-desc-cont">
               <label className="upload-form__label" htmlFor="description">
                 ADD A VIDEO DESCRIPTION
