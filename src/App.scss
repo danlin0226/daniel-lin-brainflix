@@ -1,30 +1,8 @@
-@use "./styles/partials/mixins";
-@use "./styles/partials/breakpoints" as breakpoints;
-
-.comment-counter {
-  padding: 1rem;
-  @include mixins.mobile-subheader;
-}
-
-@include breakpoints.medium {
-  .comment-counter {
-    padding: 0rem 0rem;
-    margin: 0rem 0rem 1.5rem 2.25rem;
-    @include mixins.desk-tab-subheader;
-  }
-
-  .content {
-    display: block;
-  }
-}
-
-@include breakpoints.large {
-  .comment-counter {
-    margin: 0 1.5rem 1.5rem 9rem;
-    padding-top: 1rem;
-  }
-
-  .content {
-    display: flex;
-  }
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
 }
